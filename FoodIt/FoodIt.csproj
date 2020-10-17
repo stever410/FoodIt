@@ -51,8 +51,8 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2">
-      <HintPath>C:\Users\ngota\Downloads\Compressed\Guna.UI2_WinForms_v2.0.1.1\Activation\Guna UI Activation\bin\Debug\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2, Version=2.0.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.1\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -70,46 +70,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
-    <Compile Include="view\FoodGridPanel.cs">
+    <Compile Include="FoodIt.daos\UserDAO.cs" />
+    <Compile Include="FoodIt.db\MyConnection.cs" />
+    <Compile Include="FoodIt.dtos\User.cs" />
+    <Compile Include="FoodIt.views\FoodGridPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\FoodGridPanel.Designer.cs">
+    <Compile Include="FoodIt.views\FoodGridPanel.Designer.cs">
       <DependentUpon>FoodGridPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\MainForm.cs">
+    <Compile Include="FoodIt.views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\MainForm.Designer.cs">
+    <Compile Include="FoodIt.views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\LoginForm.cs">
+    <Compile Include="FoodIt.views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\LoginForm.Designer.cs">
+    <Compile Include="FoodIt.views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="view\FoodPnl.cs">
+    <Compile Include="FoodIt.views\FoodPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\FoodPnl.Designer.cs">
-      <DependentUpon>FoodPnl.cs</DependentUpon>
+    <Compile Include="FoodIt.views\FoodPanel.Designer.cs">
+      <DependentUpon>FoodPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\RegisterForm.cs">
+    <Compile Include="FoodIt.views\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\RegisterForm.Designer.cs">
+    <Compile Include="FoodIt.views\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\FoodGridPanel.resx">
+    <EmbeddedResource Include="FoodIt.views\FoodGridPanel.resx">
       <DependentUpon>FoodGridPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\MainForm.resx">
+    <EmbeddedResource Include="FoodIt.views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\LoginForm.resx">
+    <EmbeddedResource Include="FoodIt.views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -117,10 +119,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\FoodPnl.resx">
-      <DependentUpon>FoodPnl.cs</DependentUpon>
+    <EmbeddedResource Include="FoodIt.views\FoodPanel.resx">
+      <DependentUpon>FoodPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\RegisterForm.resx">
+    <EmbeddedResource Include="FoodIt.views\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

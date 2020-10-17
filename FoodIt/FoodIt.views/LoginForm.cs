@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FoodIt.daos;
+using FoodIt.dtos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace FoodIt
 {
     public partial class LoginForm : Form
     {
+        UserDAO userDAO = new UserDAO();
         public LoginForm()
         {
             InitializeComponent();
@@ -19,9 +22,17 @@ namespace FoodIt
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm frmMain = new MainForm();
-            frmMain.Show();
+            string username = txtEmail.Text;
+            string password = txtPassword.Text;
+            User user = userDAO.checkLogin(username, password);
+            if (user != null)
+            {
+                this.Hide();
+                MainForm frmMain = new MainForm();
+                frmMain.User = user;
+                frmMain.Show();
+            }
+
         }
 
         private void lblSignUp_Click(object sender, EventArgs e)
