@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.pnlRegister = new Guna.UI2.WinForms.Guna2Panel();
@@ -43,8 +44,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnRegister = new Guna.UI2.WinForms.Guna2Button();
             this.transistion = new Guna.UI2.WinForms.Guna2Transition();
+            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRegister
@@ -97,7 +100,8 @@
             this.txtRetype.ShadowDecoration.Parent = this.txtRetype;
             this.txtRetype.Size = new System.Drawing.Size(317, 36);
             this.txtRetype.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtRetype.TabIndex = 11;
+            this.txtRetype.TabIndex = 3;
+            this.txtRetype.Validating += new System.ComponentModel.CancelEventHandler(this.txtRetype_Validating);
             // 
             // label1
             // 
@@ -138,7 +142,8 @@
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
             this.txtPassword.Size = new System.Drawing.Size(317, 36);
             this.txtPassword.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtPassword.TabIndex = 9;
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // label7
             // 
@@ -179,7 +184,8 @@
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.Size = new System.Drawing.Size(317, 36);
             this.txtUsername.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtUsername.TabIndex = 7;
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // label5
             // 
@@ -203,7 +209,7 @@
             this.lblLogin.Location = new System.Drawing.Point(188, 636);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(146, 20);
-            this.lblLogin.TabIndex = 6;
+            this.lblLogin.TabIndex = 5;
             this.lblLogin.Text = "Return to login page";
             this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
@@ -247,6 +253,7 @@
             this.txtEmail.Size = new System.Drawing.Size(317, 36);
             this.txtEmail.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtEmail.TabIndex = 0;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label6
             // 
@@ -278,8 +285,9 @@
             this.btnRegister.PressedColor = System.Drawing.Color.Transparent;
             this.btnRegister.ShadowDecoration.Parent = this.btnRegister;
             this.btnRegister.Size = new System.Drawing.Size(317, 39);
-            this.btnRegister.TabIndex = 2;
+            this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "Sign up";
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // transistion
             // 
@@ -304,10 +312,16 @@
             this.transistion.Interval = 20;
             this.transistion.TimeStep = 0.5F;
             // 
+            // errProvider
+            // 
+            this.errProvider.ContainerControl = this;
+            // 
             // RegisterForm
             // 
+            this.AcceptButton = this.btnRegister;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(501, 679);
             this.Controls.Add(this.pnlRegister);
             this.transistion.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -319,6 +333,7 @@
             this.pnlRegister.ResumeLayout(false);
             this.pnlRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,5 +353,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtRetype;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Transition transistion;
+        private System.Windows.Forms.ErrorProvider errProvider;
     }
 }

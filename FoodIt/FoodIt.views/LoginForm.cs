@@ -32,7 +32,11 @@ namespace FoodIt
                 frmMain.User = user;
                 frmMain.Show();
             }
-
+            else
+            {
+                MessageBox.Show("Invalid Username or Password!");
+                txtEmail.Focus();
+            }
         }
 
         private void lblSignUp_Click(object sender, EventArgs e)

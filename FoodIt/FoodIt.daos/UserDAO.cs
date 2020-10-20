@@ -69,7 +69,7 @@ namespace FoodIt.daos
         public User findUserByEmail(string email)
         {
             User dto = null;
-            string sql = "SELECT * FROM [User] WHERE email = @email";
+            string sql = "SELECT username, password, role, image, status FROM [User] WHERE email = @email";
             cnn = MyConnection.getMyConnection();
             cmd = new SqlCommand(sql, cnn);
             cmd.Parameters.AddWithValue("@email", email);
