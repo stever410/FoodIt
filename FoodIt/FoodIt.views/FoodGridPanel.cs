@@ -30,7 +30,7 @@ namespace FoodIt
             {
                 for (int j = 0; j < COLS; j++)
                 {
-                    FoodPnl uc1 = new FoodPnl();
+                    FoodPanel uc1 = new FoodPanel();
                     uc1.SetImageURL("https://picsum.photos/200/200");
                     pnlMain.Controls.Add(uc1, i, j);
                 }

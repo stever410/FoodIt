@@ -1,6 +1,6 @@
 ﻿namespace FoodIt
 {
-    partial class FoodPnl
+    partial class FoodPanel
     {
         /// <summary> 
         /// Required designer variable.

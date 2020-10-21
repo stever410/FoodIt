@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FoodIt
 {
-    public partial class FoodPnl : UserControl
+    public partial class FoodPanel : UserControl
     {
-        public FoodPnl()
+        public FoodPanel()
         {
             InitializeComponent();
         }
