@@ -18,7 +18,7 @@ namespace FoodIt.daos
 
         public UserDAO(){}
 
-        public User checkLogin(string email, string password)
+        public User CheckLogin(string email, string password)
         {
             User dto = null;
             string sql = "SELECT * FROM [User] WHERE email = @email AND password = @password";
@@ -50,7 +50,7 @@ namespace FoodIt.daos
             return dto;
         }
 
-        public bool addUser(User user)
+        public bool AddUser(User user)
         {
             string SQL = "Insert [User] values(@email, @username, @password, @role, @image, @status)";
             cnn = MyConnection.getMyConnection();
@@ -66,7 +66,7 @@ namespace FoodIt.daos
             return (count > 0);
         }
 
-        public User findUserByEmail(string email)
+        public User FindUserByEmail(string email)
         {
             User dto = null;
             string sql = "SELECT username, password, role, image, status FROM [User] WHERE email = @email";

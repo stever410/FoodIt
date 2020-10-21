@@ -24,7 +24,7 @@ namespace FoodIt
         {
             string username = txtEmail.Text;
             string password = txtPassword.Text;
-            User user = userDAO.checkLogin(username, password);
+            User user = userDAO.CheckLogin(username, password);
             if (user != null)
             {
                 this.Hide();

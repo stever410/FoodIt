@@ -98,7 +98,7 @@ namespace FoodIt
             string password = txtPassword.Text;
             if (this.ValidateChildren())
             {
-                if (userDAO.findUserByEmail(email) != null)
+                if (userDAO.FindUserByEmail(email) != null)
                 {
                     MessageBox.Show("That email is exist!");
                     this.txtEmail.Focus();
@@ -106,7 +106,7 @@ namespace FoodIt
                 else
                 {
                     User user = new User(email, username, password, User.MEMBER, "", User.DEFAULT_STATUS);
-                    userDAO.addUser(user);
+                    userDAO.AddUser(user);
                     MessageBox.Show("Sign up successfully!");
                 }
             }
