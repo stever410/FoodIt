@@ -1,4 +1,6 @@
-﻿namespace FoodIt
+﻿using Guna.UI2.WinForms;
+
+namespace FoodIt
 {
     partial class MainForm
     {
@@ -36,7 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.mainPnl = new Guna.UI2.WinForms.Guna2Panel();
+            this.MainPnl = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel2.SuspendLayout();
             this.sidePnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -155,20 +157,20 @@
             // 
             // mainPnl
             // 
-            this.mainPnl.BackColor = System.Drawing.Color.White;
-            this.mainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPnl.Location = new System.Drawing.Point(167, 0);
-            this.mainPnl.Name = "mainPnl";
-            this.mainPnl.ShadowDecoration.Parent = this.mainPnl;
-            this.mainPnl.Size = new System.Drawing.Size(743, 403);
-            this.mainPnl.TabIndex = 1;
+            this.MainPnl.BackColor = System.Drawing.Color.White;
+            this.MainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPnl.Location = new System.Drawing.Point(167, 0);
+            this.MainPnl.Name = "mainPnl";
+            this.MainPnl.ShadowDecoration.Parent = this.MainPnl;
+            this.MainPnl.Size = new System.Drawing.Size(743, 403);
+            this.MainPnl.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 403);
-            this.Controls.Add(this.mainPnl);
+            this.Controls.Add(this.MainPnl);
             this.Controls.Add(this.sidePnl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -176,7 +178,6 @@
             this.Text = "FoodIt";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.sidePnl.ResumeLayout(false);
             this.sidePnl.PerformLayout();
@@ -194,5 +195,7 @@
         private Guna.UI2.WinForms.Guna2Panel sidePnl;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel mainPnl;
+
+        public Guna2Panel MainPnl { get => mainPnl; set => mainPnl = value; }
     }
 }

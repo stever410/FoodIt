@@ -17,12 +17,8 @@ namespace FoodIt
         public MainForm()
         {
             InitializeComponent();
-            FoodGridPanel foodGridPanel = new FoodGridPanel();
-            this.mainPnl.Controls.Add(foodGridPanel);
-        }
-       
-        private void FormMain_Load(object sender, EventArgs e)
-        {
+            FoodGridPanel foodGridPanel = new FoodGridPanel(this);
+            this.MainPnl.Controls.Add(foodGridPanel);
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)

@@ -45,11 +45,12 @@
             this.tableLayoutPanel1.Controls.Add(this.imgFood, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.34495F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.65505F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(391, 287);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(521, 353);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblFood
@@ -58,33 +59,38 @@
             this.lblFood.BackColor = System.Drawing.Color.Transparent;
             this.lblFood.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFood.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFood.Location = new System.Drawing.Point(3, 0);
+            this.lblFood.Location = new System.Drawing.Point(4, 0);
+            this.lblFood.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFood.Name = "lblFood";
-            this.lblFood.Size = new System.Drawing.Size(385, 67);
+            this.lblFood.Size = new System.Drawing.Size(513, 82);
             this.lblFood.TabIndex = 1;
             this.lblFood.Text = "Hello World";
             this.lblFood.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFood.Click += new System.EventHandler(this.FoodPnl_Click);
             // 
             // imgFood
             // 
             this.imgFood.BackColor = System.Drawing.Color.Transparent;
             this.imgFood.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgFood.Location = new System.Drawing.Point(3, 70);
+            this.imgFood.Location = new System.Drawing.Point(4, 86);
+            this.imgFood.Margin = new System.Windows.Forms.Padding(4);
             this.imgFood.Name = "imgFood";
             this.imgFood.ShadowDecoration.Parent = this.imgFood;
-            this.imgFood.Size = new System.Drawing.Size(385, 214);
+            this.imgFood.Size = new System.Drawing.Size(513, 263);
             this.imgFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgFood.TabIndex = 2;
             this.imgFood.TabStop = false;
-            this.imgFood.Click += new System.EventHandler(this.imgFood_Click);
+            this.imgFood.Click += new System.EventHandler(this.FoodPnl_Click);
             // 
             // FoodPnl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FoodPnl";
-            this.Size = new System.Drawing.Size(391, 287);
+            this.Size = new System.Drawing.Size(521, 353);
+            this.Click += new System.EventHandler(this.FoodPnl_Click);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFood)).EndInit();
