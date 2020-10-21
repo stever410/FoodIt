@@ -1,4 +1,6 @@
-﻿namespace FoodIt
+﻿using Guna.UI2.WinForms;
+
+namespace FoodIt
 {
     partial class MainForm
     {
@@ -35,8 +37,8 @@
             this.sidePnl = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnUser = new Guna.UI2.WinForms.Guna2Button();
-            this.mainPnl = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.MainPnl = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel2.SuspendLayout();
             this.sidePnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -104,7 +106,7 @@
             this.sidePnl.Controls.Add(this.label1);
             this.sidePnl.Controls.Add(this.tableLayoutPanel2);
             this.sidePnl.Controls.Add(this.guna2PictureBox1);
-            this.sidePnl.Controls.Add(this.btnUser);
+            this.sidePnl.Controls.Add(this.guna2Button4);
             this.sidePnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePnl.Location = new System.Drawing.Point(0, 0);
             this.sidePnl.Name = "sidePnl";
@@ -134,41 +136,41 @@
             this.guna2PictureBox1.TabIndex = 4;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // btnUser
+            // guna2Button4
             // 
-            this.btnUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnUser.CheckedState.Parent = this.btnUser;
-            this.btnUser.CustomImages.Parent = this.btnUser;
-            this.btnUser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnUser.FillColor = System.Drawing.Color.Transparent;
-            this.btnUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUser.ForeColor = System.Drawing.Color.Black;
-            this.btnUser.HoverState.Parent = this.btnUser;
-            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
-            this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUser.Location = new System.Drawing.Point(0, 358);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.ShadowDecoration.Parent = this.btnUser;
-            this.btnUser.Size = new System.Drawing.Size(167, 45);
-            this.btnUser.TabIndex = 3;
-            this.btnUser.Text = "User";
+            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
+            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
+            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button4.HoverState.Parent = this.guna2Button4;
+            this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
+            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button4.Location = new System.Drawing.Point(0, 358);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
+            this.guna2Button4.Size = new System.Drawing.Size(167, 45);
+            this.guna2Button4.TabIndex = 3;
+            this.guna2Button4.Text = "User";
             // 
             // mainPnl
             // 
-            this.mainPnl.BackColor = System.Drawing.Color.White;
-            this.mainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPnl.Location = new System.Drawing.Point(167, 0);
-            this.mainPnl.Name = "mainPnl";
-            this.mainPnl.ShadowDecoration.Parent = this.mainPnl;
-            this.mainPnl.Size = new System.Drawing.Size(743, 403);
-            this.mainPnl.TabIndex = 1;
+            this.MainPnl.BackColor = System.Drawing.Color.White;
+            this.MainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPnl.Location = new System.Drawing.Point(167, 0);
+            this.MainPnl.Name = "mainPnl";
+            this.MainPnl.ShadowDecoration.Parent = this.MainPnl;
+            this.MainPnl.Size = new System.Drawing.Size(743, 403);
+            this.MainPnl.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 403);
-            this.Controls.Add(this.mainPnl);
+            this.Controls.Add(this.MainPnl);
             this.Controls.Add(this.sidePnl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -176,7 +178,6 @@
             this.Text = "FoodIt";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.sidePnl.ResumeLayout(false);
             this.sidePnl.PerformLayout();
@@ -188,11 +189,13 @@
         #endregion
         private Guna.UI2.WinForms.Guna2Button btnHome;
         private Guna.UI2.WinForms.Guna2Button btnPost;
-        private Guna.UI2.WinForms.Guna2Button btnUser;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel sidePnl;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel mainPnl;
+
+        public Guna2Panel MainPnl { get => mainPnl; set => mainPnl = value; }
     }
 }
