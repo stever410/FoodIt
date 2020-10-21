@@ -114,6 +114,9 @@
     <EmbeddedResource Include="FoodIt.views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Foodit.views\ViewRecipePanel.resx">
+      <DependentUpon>ViewRecipePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -186,6 +189,46 @@
   <ItemGroup>
     <None Include="Properties\search.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="images\52770.jpg" />
+    <Content Include="images\52775.jpg" />
+    <Content Include="images\52784.jpg" />
+    <Content Include="images\52786.jpg" />
+    <Content Include="images\52793.jpg" />
+    <Content Include="images\52796.jpg" />
+    <Content Include="images\52808.jpg" />
+    <Content Include="images\52809.jpg" />
+    <Content Include="images\52814.jpg" />
+    <Content Include="images\52815.jpg" />
+    <Content Include="images\52831.jpg" />
+    <Content Include="images\52832.jpg" />
+    <Content Include="images\52833.jpg" />
+    <Content Include="images\52836.jpg" />
+    <Content Include="images\52843.jpg" />
+    <Content Include="images\52846.jpg" />
+    <Content Include="images\52851.jpg" />
+    <Content Include="images\52855.jpg" />
+    <Content Include="images\52859.jpg" />
+    <Content Include="images\52873.jpg" />
+    <Content Include="images\52876.jpg" />
+    <Content Include="images\52877.jpg" />
+    <Content Include="images\52908.jpg" />
+    <Content Include="images\52910.jpg" />
+    <Content Include="images\52918.jpg" />
+    <Content Include="images\52924.jpg" />
+    <Content Include="images\52938.jpg" />
+    <Content Include="images\52945.jpg" />
+    <Content Include="images\52950.jpg" />
+    <Content Include="images\52951.jpg" />
+    <Content Include="images\52956.jpg" />
+    <Content Include="images\52961.jpg" />
+    <Content Include="images\52966.jpg" />
+    <Content Include="images\52969.jpg" />
+    <Content Include="images\52990.jpg" />
+    <Content Include="images\52993.jpg" />
+    <Content Include="images\53006.jpg" />
+    <Content Include="images\53014.jpg" />
+    <Content Include="images\53030.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
