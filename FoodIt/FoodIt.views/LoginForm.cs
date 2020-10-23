@@ -24,23 +24,19 @@ namespace FoodIt
         {
             string username = txtEmail.Text;
             string password = txtPassword.Text;
-            if (this.ValidateChildren())
+            User user = userDAO.CheckLogin(username, password);
+            if (user != null)
             {
-                User user = userDAO.CheckLogin(username, password);
-                if (user != null)
-                {
-                    this.Hide();
-                    MainForm frmMain = new MainForm();
-                    frmMain.User = user;
-                    frmMain.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Username or Password!");
-                    txtEmail.Focus();
-                }
+                this.Hide();
+                MainForm frmMain = new MainForm();
+                frmMain.User = user;
+                frmMain.Show();
             }
-
+            else
+            {
+                MessageBox.Show("Invalid Username or Password!");
+                txtEmail.Focus();
+            }
         }
 
         private void lblSignUp_Click(object sender, EventArgs e)
@@ -53,32 +49,6 @@ namespace FoodIt
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void txtEmail_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                //txtEmail.Focus();
-                e.Cancel = true;
-            }
-            else
-            {
-                e.Cancel = false;
-            }
-        }
-
-        private void txtPassword_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                //txtPassword.Focus();
-                e.Cancel = true;
-            }
-            else
-            {
-                e.Cancel = false;
-            }
         }
     }
 }
