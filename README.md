@@ -10,4 +10,8 @@
     . Recipe form
     . CRUD IngredientDetail
     . CRUD IngredientSteps
-  + No validation yet
+  + Add IngredientDAO
+  + Add Ingredient, RecipeStep, RecipeIngredient
+  Note:
+    + The recipeSteps, recipeIngredients are also an attribute in Recipe
+    + The AddRecipePanel has no validation 
