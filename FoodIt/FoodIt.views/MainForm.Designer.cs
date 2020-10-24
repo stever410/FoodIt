@@ -76,6 +76,7 @@
             this.btnPost.Size = new System.Drawing.Size(164, 93);
             this.btnPost.TabIndex = 1;
             this.btnPost.Text = "Post article";
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
             // 
             // btnHome
             // 
@@ -96,6 +97,7 @@
             this.btnHome.Size = new System.Drawing.Size(164, 92);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // sidePnl
             // 
@@ -109,7 +111,7 @@
             this.sidePnl.Location = new System.Drawing.Point(0, 0);
             this.sidePnl.Name = "sidePnl";
             this.sidePnl.ShadowDecoration.Parent = this.sidePnl;
-            this.sidePnl.Size = new System.Drawing.Size(167, 403);
+            this.sidePnl.Size = new System.Drawing.Size(167, 561);
             this.sidePnl.TabIndex = 0;
             // 
             // label1
@@ -146,7 +148,7 @@
             this.btnUser.HoverState.Parent = this.btnUser;
             this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
             this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUser.Location = new System.Drawing.Point(0, 358);
+            this.btnUser.Location = new System.Drawing.Point(0, 516);
             this.btnUser.Name = "btnUser";
             this.btnUser.ShadowDecoration.Parent = this.btnUser;
             this.btnUser.Size = new System.Drawing.Size(167, 45);
@@ -155,22 +157,26 @@
             // 
             // mainPnl
             // 
+            this.mainPnl.AutoScroll = true;
+            this.mainPnl.AutoSize = true;
             this.mainPnl.BackColor = System.Drawing.Color.White;
             this.mainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPnl.Location = new System.Drawing.Point(167, 0);
+            this.mainPnl.MinimumSize = new System.Drawing.Size(571, 861);
             this.mainPnl.Name = "mainPnl";
             this.mainPnl.ShadowDecoration.Parent = this.mainPnl;
-            this.mainPnl.Size = new System.Drawing.Size(743, 403);
+            this.mainPnl.Size = new System.Drawing.Size(817, 861);
             this.mainPnl.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 403);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.mainPnl);
             this.Controls.Add(this.sidePnl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FoodIt";
@@ -182,6 +188,7 @@
             this.sidePnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

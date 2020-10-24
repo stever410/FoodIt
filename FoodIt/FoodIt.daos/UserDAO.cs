@@ -1,13 +1,8 @@
-﻿using FoodIt.db;
+﻿ using FoodIt.db;
 using FoodIt.dtos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FoodIt.daos
 {
@@ -22,7 +17,7 @@ namespace FoodIt.daos
         {
             User dto = null;
             string sql = "SELECT * FROM [User] WHERE email = @email AND password = @password";
-            cnn = MyConnection.getMyConnection();
+            cnn = MyConnection.GetMyConnection();
             cmd = new SqlCommand(sql, cnn);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@password", password);
@@ -53,7 +48,7 @@ namespace FoodIt.daos
         public bool AddUser(User user)
         {
             string SQL = "Insert [User] values(@email, @username, @password, @role, @image, @status)";
-            cnn = MyConnection.getMyConnection();
+            cnn = MyConnection.GetMyConnection();
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@email", user.Email);
             cmd.Parameters.AddWithValue("@username", user.Username);
@@ -70,7 +65,7 @@ namespace FoodIt.daos
         {
             User dto = null;
             string sql = "SELECT username, password, role, image, status FROM [User] WHERE email = @email";
-            cnn = MyConnection.getMyConnection();
+            cnn = MyConnection.GetMyConnection();
             cmd = new SqlCommand(sql, cnn);
             cmd.Parameters.AddWithValue("@email", email);
             try

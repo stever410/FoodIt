@@ -1,15 +1,7 @@
 ﻿using FoodIt.dtos;
-using Guna.UI2.WinForms;
+using FoodIt.FoodIt.views;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace FoodIt
 {
@@ -34,6 +26,21 @@ namespace FoodIt
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnPost_Click(object sender, EventArgs e)
+        {
+            mainPnl.Controls.Clear();
+            AddRecipePanel addRecipePanel = new AddRecipePanel(User);
+            addRecipePanel.Dock = DockStyle.Top;
+            this.mainPnl.Controls.Add(addRecipePanel);
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            mainPnl.Controls.Clear();
+            FoodGridPanel foodGridPanel = new FoodGridPanel();
+            this.mainPnl.Controls.Add(foodGridPanel);
         }
     }
 }
