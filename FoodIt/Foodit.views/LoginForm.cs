@@ -19,9 +19,24 @@ namespace FoodIt
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm frmMain = new MainForm();
-            frmMain.Show();
+            string username = txtEmail.Text;
+            string password = txtPassword.Text;
+            if (this.ValidateChildren())
+            {
+                User user = userDAO.CheckLogin(username, password);
+                if (user != null)
+                {
+                    this.Hide();
+                    MainForm frmMain = new MainForm();
+                    frmMain.User = user;
+                    frmMain.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password!");
+                    txtEmail.Focus();
+                }
+            }
         }
 
         private void lblSignUp_Click(object sender, EventArgs e)
