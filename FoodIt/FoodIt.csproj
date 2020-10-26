@@ -70,14 +70,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodIt.daos\IngredientDAO.cs" />
     <Compile Include="FoodIt.daos\UserDAO.cs" />
     <Compile Include="FoodIt.db\MyConnection.cs" />
+    <Compile Include="FoodIt.dtos\Ingredient.cs" />
+    <Compile Include="FoodIt.dtos\Recipe.cs" />
+    <Compile Include="FoodIt.dtos\RecipeIngredient.cs" />
+    <Compile Include="FoodIt.dtos\RecipeStep.cs" />
     <Compile Include="FoodIt.dtos\User.cs" />
+    <Compile Include="FoodIt.views\AddRecipePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodIt.views\AddRecipePanel.Designer.cs">
+      <DependentUpon>AddRecipePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FoodIt.views\FoodGridPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FoodIt.views\FoodGridPanel.Designer.cs">
       <DependentUpon>FoodGridPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodIt.views\IngredientTag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodIt.views\IngredientTag.Designer.cs">
+      <DependentUpon>IngredientTag.cs</DependentUpon>
     </Compile>
     <Compile Include="FoodIt.views\MainForm.cs">
       <SubType>Form</SubType>
@@ -105,8 +122,14 @@
     <Compile Include="FoodIt.views\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FoodIt.views\AddRecipePanel.resx">
+      <DependentUpon>AddRecipePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FoodIt.views\FoodGridPanel.resx">
       <DependentUpon>FoodGridPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodIt.views\IngredientTag.resx">
+      <DependentUpon>IngredientTag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodIt.views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -172,9 +195,6 @@
     <None Include="Properties\previous.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\user_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\article.png" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +206,20 @@
   <ItemGroup>
     <None Include="Properties\search.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\img\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\add.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
