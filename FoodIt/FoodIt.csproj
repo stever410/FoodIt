@@ -137,6 +137,9 @@
     <EmbeddedResource Include="FoodIt.views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Foodit.views\ViewRecipePanel.resx">
+      <DependentUpon>ViewRecipePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -207,19 +210,6 @@
     <None Include="Properties\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\img\upload.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\upload.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\folder.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
