@@ -116,5 +116,48 @@ namespace FoodIt.FoodIt.daos
             }
             return name;
         }
+
+        public List<Ingredient> GetAllIngredientsByRecipe(Recipe recipe)
+        {
+            List<Ingredient> ingredients = new List<Ingredient>();
+            try
+            {
+
+                string sql = @"SELECT Ingredient.ingre_id, [name], Ingredient.description, amount_ingre 
+                                FROM dbo.Recipe, dbo.RecipeIngredient, dbo.Ingredient
+                                WHERE Recipe.recipe_id = RecipeIngredient.recipe_id 
+                                AND Ingredient.ingre_id = RecipeIngredient.ingre_id 
+                                AND Recipe.recipe_id = @id";
+
+                using(cnn = MyConnection.GetMyConnection())
+                {
+                    cnn.Open();
+                    using (cmd = new SqlCommand(sql, cnn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", recipe.Id);
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int ingreId = (int)reader["ingre_id"];
+                                string name = reader["name"] as string;
+                                string description = reader["description"] as string;
+                                string amount = reader["amount_ingre"] as string;
+
+                                Ingredient ingredient = new Ingredient(ingreId, name, description, amount);
+
+                                ingredients.Add(ingredient);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return ingredients;
+        }
     }
 }

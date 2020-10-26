@@ -18,6 +18,14 @@ namespace FoodIt.FoodIt.dtos
         private string image;
         private List<RecipeIngredient> recipeIngredients;
         private List<RecipeStep> recipeSteps;
+        private List<Ingredient> ingredients;
+
+        public Recipe(string title, DateTime date, string image)
+        {
+            this.title = title;
+            this.date = date;
+            this.image = image;
+        }
 
         public Recipe(string email, string title, string description, string status, DateTime date, string image)
         {
@@ -49,5 +57,6 @@ namespace FoodIt.FoodIt.dtos
         public string Image { get => image; set => image = value; }
         public List<RecipeIngredient> RecipeIngredients { get => recipeIngredients; set => recipeIngredients = value; }
         public List<RecipeStep> RecipeSteps { get => recipeSteps; set => recipeSteps = value; }
+        public List<Ingredient> Ingredients { get => ingredients; set => ingredients = value; }
     }
 }

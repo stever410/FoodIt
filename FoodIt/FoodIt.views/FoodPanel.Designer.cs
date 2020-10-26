@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableContainer = new System.Windows.Forms.TableLayoutPanel();
             this.lblFood = new System.Windows.Forms.Label();
             this.imgFood = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFood)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableContainer
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.lblFood, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.imgFood, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.34495F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.65505F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(391, 287);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableContainer.AutoSize = true;
+            this.tableContainer.BackColor = System.Drawing.Color.Transparent;
+            this.tableContainer.ColumnCount = 1;
+            this.tableContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableContainer.Controls.Add(this.lblFood, 0, 0);
+            this.tableContainer.Controls.Add(this.imgFood, 0, 1);
+            this.tableContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableContainer.Location = new System.Drawing.Point(0, 0);
+            this.tableContainer.Name = "tableContainer";
+            this.tableContainer.RowCount = 2;
+            this.tableContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.34495F));
+            this.tableContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.65505F));
+            this.tableContainer.Size = new System.Drawing.Size(391, 287);
+            this.tableContainer.TabIndex = 0;
             // 
             // lblFood
             // 
@@ -62,7 +62,7 @@
             this.lblFood.Name = "lblFood";
             this.lblFood.Size = new System.Drawing.Size(385, 67);
             this.lblFood.TabIndex = 1;
-            this.lblFood.Text = "Hello World";
+            this.lblFood.Text = "Title goes here";
             this.lblFood.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imgFood
@@ -76,17 +76,17 @@
             this.imgFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgFood.TabIndex = 2;
             this.imgFood.TabStop = false;
-            this.imgFood.Click += new System.EventHandler(this.imgFood_Click);
             // 
-            // FoodPnl
+            // FoodPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FoodPnl";
+            this.Controls.Add(this.tableContainer);
+            this.Name = "FoodPanel";
             this.Size = new System.Drawing.Size(391, 287);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.Click += new System.EventHandler(this.FoodPanel_Click);
+            this.tableContainer.ResumeLayout(false);
+            this.tableContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFood)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,7 +95,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableContainer;
         private System.Windows.Forms.Label lblFood;
         private Guna.UI2.WinForms.Guna2PictureBox imgFood;
     }

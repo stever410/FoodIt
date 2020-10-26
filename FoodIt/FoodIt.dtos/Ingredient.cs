@@ -14,6 +14,7 @@ namespace FoodIt.FoodIt.dtos
         private string unit;
         private string image;
         private string status;
+        private string amount;
 
         public Ingredient(int id, string name, string description, string unit, string image, string status)
         {
@@ -25,11 +26,20 @@ namespace FoodIt.FoodIt.dtos
             this.Status = status;
         }
 
+        public Ingredient(int id, string name, string description, string amount)
+        {
+            this.id = id;
+            this.name = name;
+            this.description = description;
+            this.amount = amount;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Description { get => description; set => description = value; }
         public string Unit { get => unit; set => unit = value; }
         public string Image { get => image; set => image = value; }
         public string Status { get => status; set => status = value; }
+        public string Amount { get => amount; set => amount = value; }
     }
 }

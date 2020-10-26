@@ -36,6 +36,7 @@
             this.pnlNavigation = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnPrev = new Guna.UI2.WinForms.Guna2Button();
+            this.lblPaging = new System.Windows.Forms.Label();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -61,7 +62,7 @@
             this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pnlMain.Size = new System.Drawing.Size(873, 385);
+            this.pnlMain.Size = new System.Drawing.Size(873, 333);
             this.pnlMain.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -146,7 +147,7 @@
             this.pnlNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlNavigation.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.pnlNavigation.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlNavigation.Location = new System.Drawing.Point(0, 458);
+            this.pnlNavigation.Location = new System.Drawing.Point(0, 406);
             this.pnlNavigation.Name = "pnlNavigation";
             this.pnlNavigation.RowCount = 1;
             this.pnlNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -160,10 +161,11 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.btnPrev);
+            this.flowLayoutPanel1.Controls.Add(this.lblPaging);
             this.flowLayoutPanel1.Controls.Add(this.btnNext);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(223, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(198, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(426, 48);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(476, 48);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnPrev
@@ -182,6 +184,19 @@
             this.btnPrev.Size = new System.Drawing.Size(180, 45);
             this.btnPrev.TabIndex = 0;
             this.btnPrev.Text = "< Previous";
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // lblPaging
+            // 
+            this.lblPaging.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPaging.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaging.Location = new System.Drawing.Point(215, 0);
+            this.lblPaging.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPaging.Name = "lblPaging";
+            this.lblPaging.Size = new System.Drawing.Size(46, 51);
+            this.lblPaging.TabIndex = 2;
+            this.lblPaging.Text = "paging";
+            this.lblPaging.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNext
             // 
@@ -193,13 +208,14 @@
             this.btnNext.ForeColor = System.Drawing.Color.Black;
             this.btnNext.HoverState.Parent = this.btnNext;
             this.btnNext.ImageOffset = new System.Drawing.Point(30, 0);
-            this.btnNext.Location = new System.Drawing.Point(243, 3);
+            this.btnNext.Location = new System.Drawing.Point(293, 3);
             this.btnNext.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.ShadowDecoration.Parent = this.btnNext;
             this.btnNext.Size = new System.Drawing.Size(180, 45);
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "Next >";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // FoodGridPanel
             // 
@@ -211,7 +227,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pnlNavigation);
             this.Name = "FoodGridPanel";
-            this.Size = new System.Drawing.Size(873, 512);
+            this.Size = new System.Drawing.Size(873, 460);
             this.Load += new System.EventHandler(this.FoodGridPanel_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -234,5 +250,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button btnPrev;
         private Guna.UI2.WinForms.Guna2Button btnNext;
+        private System.Windows.Forms.Label lblPaging;
     }
 }
