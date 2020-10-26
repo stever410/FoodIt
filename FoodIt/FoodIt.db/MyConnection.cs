@@ -9,7 +9,7 @@ namespace FoodIt.db
 {
     public class MyConnection
     {
-        public static SqlConnection getMyConnection()
+        public static SqlConnection GetMyConnection()
         {
             string strConnection = "server=.;database=FoodIt;uid=sa;pwd=123456";
             SqlConnection cnn = new SqlConnection(strConnection);

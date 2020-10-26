@@ -78,6 +78,7 @@ namespace FoodIt
             this.btnPost.Size = new System.Drawing.Size(164, 93);
             this.btnPost.TabIndex = 1;
             this.btnPost.Text = "Post article";
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
             // 
             // btnHome
             // 
@@ -98,6 +99,7 @@ namespace FoodIt
             this.btnHome.Size = new System.Drawing.Size(164, 92);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // sidePnl
             // 
@@ -111,7 +113,7 @@ namespace FoodIt
             this.sidePnl.Location = new System.Drawing.Point(0, 0);
             this.sidePnl.Name = "sidePnl";
             this.sidePnl.ShadowDecoration.Parent = this.sidePnl;
-            this.sidePnl.Size = new System.Drawing.Size(167, 403);
+            this.sidePnl.Size = new System.Drawing.Size(167, 561);
             this.sidePnl.TabIndex = 0;
             // 
             // label1
@@ -136,43 +138,14 @@ namespace FoodIt
             this.guna2PictureBox1.TabIndex = 4;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
-            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button4.Location = new System.Drawing.Point(0, 358);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(167, 45);
-            this.guna2Button4.TabIndex = 3;
-            this.guna2Button4.Text = "User";
-            // 
-            // mainPnl
-            // 
-            this.MainPnl.BackColor = System.Drawing.Color.White;
-            this.MainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPnl.Location = new System.Drawing.Point(167, 0);
-            this.MainPnl.Name = "mainPnl";
-            this.MainPnl.ShadowDecoration.Parent = this.MainPnl;
-            this.MainPnl.Size = new System.Drawing.Size(743, 403);
-            this.MainPnl.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 403);
-            this.Controls.Add(this.MainPnl);
             this.Controls.Add(this.sidePnl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FoodIt";
@@ -183,6 +156,7 @@ namespace FoodIt
             this.sidePnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
