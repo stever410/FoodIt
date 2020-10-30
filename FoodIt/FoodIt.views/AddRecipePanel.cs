@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using FoodIt.dtos;
 using FoodIt.FoodIt.daos;
 using FoodIt.FoodIt.dtos;
+using Guna.UI2.WinForms;
 
 namespace FoodIt.FoodIt.views
 {
@@ -16,11 +19,15 @@ namespace FoodIt.FoodIt.views
         List<RecipeIngredient> recipeIngredients = new List<RecipeIngredient>();
         private int stepIndex = 0;
         private User user;
+        private string workingDirectory, projectDirectory;
+        Dictionary<string, string> imagePath = new Dictionary<string, string>();
 
         public AddRecipePanel(User user)
         {
             InitializeComponent();
             this.user = user;
+            workingDirectory = Environment.CurrentDirectory;
+            projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
         }
 
         private void AddRecipePanel_Load(object sender, EventArgs e)
@@ -33,10 +40,65 @@ namespace FoodIt.FoodIt.views
             string title = txtTitle.Text;
             string image = txtImage.Text;
             string description = txtDescription.Text;
-            // data send to db here
-            Recipe recipe = new Recipe(user.Email, title, description, Recipe.DEFAULT_STATUS, new DateTime(), image);
-            recipe.RecipeIngredients = recipeIngredients;
-            recipe.RecipeSteps = recipeSteps;
+            if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(image) || string.IsNullOrEmpty(description))
+            {
+                MessageBox.Show("Please complete title, image, description");
+            }
+            else
+            {
+                if (recipeIngredients.Count == 0 || recipeSteps.Count == 0)
+                {
+                    MessageBox.Show("Please add at least 1 ingredient and 1 step.");
+                }
+                else
+                {
+                    // data send to db here
+                    Recipe recipe = new Recipe(user.Email, title, description, Recipe.DEFAULT_STATUS, DateTime.Now, image);
+                    recipe.RecipeIngredients = recipeIngredients;
+                    recipe.RecipeSteps = recipeSteps;
+                    RecipeDAO recipeDAO = new RecipeDAO();
+                    RecipeStepDAO recipeStepDAO = new RecipeStepDAO();
+                    RecipeIngredientDAO recipeIngredientDAO = new RecipeIngredientDAO();
+                    int recipeID = recipeDAO.AddRecipe(recipe);
+                    recipeStepDAO.AddRecipeSteps(recipeID, recipeSteps);
+                    recipeIngredientDAO.AddRecipeIngredients(recipeID, recipeIngredients);
+                    //save image
+                    String path = projectDirectory + @"\resources\img\" + recipeID;
+                    if (Directory.Exists(path) == false)
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    try
+                    {
+                        foreach (string imageName in imagePath.Keys)
+                        {
+                            string destFile = Path.Combine(path, imageName);
+                            File.Copy(imagePath[imageName], destFile, true);
+                        }
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show("Unable to save file " + exp.Message);
+                    }
+                    MessageBox.Show("Add new recipe successful!");
+                    ClearAll();
+                }
+            }
+        }
+
+        private void ClearAll()
+        {
+            txtIngredientAmount.Clear();
+            txtIngredient.Clear();
+            txtNote.Clear();
+            txtImage.Clear();
+            txtDescription.Clear();
+            txtTitle.Clear();
+            txtStepOrder.Clear();
+            txtStepDescription.Clear();
+            txtStepImage.Clear();
+            recipeIngredients.Clear();
+            recipeSteps.Clear();
         }
 
         #region StepDetail
@@ -47,7 +109,18 @@ namespace FoodIt.FoodIt.views
 
         private void stepFileDlg_FileOk(object sender, CancelEventArgs e)
         {
-            txtStepImage.Text = stepFileDlg.FileName;
+            try
+            {
+                string imageName = stepFileDlg.SafeFileName;
+                txtStepImage.Text = imageName;
+                string filePath = stepFileDlg.FileName;
+                imagePath.Add(imageName, filePath);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Unable to open file " + exp.Message);
+            }
+            stepFileDlg.Dispose();
         }
 
         private void LoadAllSteps()
@@ -75,29 +148,55 @@ namespace FoodIt.FoodIt.views
 
         private void btnAddStep_Click(object sender, EventArgs e)
         {
-            int id = ++stepIndex;
+            int id;
             string description = txtStepDescription.Text;
             string image = txtStepImage.Text;
-            RecipeStep step = new RecipeStep(id, description, image);
-            recipeSteps.Add(step);
-            LoadAllSteps();
+            if (string.IsNullOrEmpty(description))
+            {
+                errProvider.SetError(txtStepDescription, "Description must not be blank!");
+            }
+            else
+            {
+                id = ++stepIndex;
+                errProvider.SetError(txtStepDescription, "");
+                errProvider.SetError(txtStepOrder, "");
+                RecipeStep step = new RecipeStep(id, description, image);
+                recipeSteps.Add(step);
+                LoadAllSteps();
+                txtStepOrder.Clear();
+                txtStepDescription.Clear();
+                txtStepImage.Clear();
+            }
         }
 
         private void btnUpdateStep_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtStepOrder.Text);
-            string description = txtStepDescription.Text;
-            string image = txtStepImage.Text;
-            RecipeStep updatedStep = new RecipeStep(id, description, image);
-            for (int i = 0; i < recipeSteps.Count; i++)
+            if (string.IsNullOrEmpty(txtStepOrder.Text))
             {
-                if(recipeSteps[i].Equals(updatedStep))
-                {
-                    recipeSteps[i] = updatedStep;
-                    break;
-                }
+                errProvider.SetError(txtStepOrder, "Please select the step you want to update.");
             }
-            LoadAllSteps();
+            else if (string.IsNullOrEmpty(txtStepDescription.Text))
+            {
+                errProvider.SetError(txtStepDescription, "Description must not be blank!");
+            }
+            else
+            {
+                errProvider.SetError(txtStepOrder, "");
+                errProvider.SetError(txtStepDescription, "");
+                int id = int.Parse(txtStepOrder.Text);
+                string description = txtStepDescription.Text;
+                string image = txtStepImage.Text;
+                RecipeStep updatedStep = new RecipeStep(id, description, image);
+                for (int i = 0; i < recipeSteps.Count; i++)
+                {
+                    if (recipeSteps[i].Equals(updatedStep))
+                    {
+                        recipeSteps[i] = updatedStep;
+                        break;
+                    }
+                }
+                LoadAllSteps();
+            }
         }
 
         private void btnDeleteStep_Click(object sender, EventArgs e)
@@ -140,29 +239,53 @@ namespace FoodIt.FoodIt.views
 
         private void recipeFileDlg_FileOk(object sender, CancelEventArgs e)
         {
-            txtImage.Text = recipeFileDlg.FileName;
+            try
+            {
+                string imageName = recipeFileDlg.SafeFileName;
+                string filePath = recipeFileDlg.FileName;
+                txtImage.Text = imageName;
+                imagePath.Add(imageName, filePath);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Unable to open file " + exp.Message);
+            }
+            recipeFileDlg.Dispose();
         }
         private void btnAddIngre_Click(object sender, EventArgs e)
         {
             IngredientDAO dao = new IngredientDAO();
             string name = txtIngredient.Text;
             int id = dao.GetIngredientIDByName(name);
-            string amount = txtIngredientAmount.Text;
+            string amount = txtIngredientAmount.Text + " " + lblUnit.Text;
             string note = txtNote.Text;
-            if(id > 0)
+            if (id > 0)
             {
-                RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
-                if(recipeIngredients.Contains(ingredient))
+                if (string.IsNullOrEmpty(amount))
                 {
-                    //Neu trong list da co ingredient roi thi chi duoc update hoac delete
-                    MessageBox.Show(name + " has already existed. You can only update or delete it");
-                } else
-                {
-                    recipeIngredients.Add(ingredient);
-                    LoadAllIngredients();
-                    //clear ingredient field only
+                    errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
-            } else
+                else
+                {
+                    errProvider.SetError(txtIngredientAmount, "");
+                    RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
+                    if (recipeIngredients.Contains(ingredient))
+                    {
+                        //Neu trong list da co ingredient roi thi chi duoc update hoac delete
+                        MessageBox.Show(name + " has already existed. You can only update or delete it");
+                        txtIngredientAmount.Clear();
+                        txtIngredient.Clear();
+                        txtNote.Clear();
+                    }
+                    else
+                    {
+                        recipeIngredients.Add(ingredient);
+                        LoadAllIngredients();
+                        //clear ingredient field only
+                    }
+                }
+            }
+            else
             {
                 MessageBox.Show("Invalid ingredient");
             }
@@ -177,17 +300,25 @@ namespace FoodIt.FoodIt.views
             string note = txtNote.Text;
             if (id > 0)
             {
-                for (int i = 0; i < recipeIngredients.Count; i++)
+                if (string.IsNullOrEmpty(amount))
                 {
-                    RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
-                    if (recipeIngredients[i].Equals(ingredient))
-                    {
-                        recipeIngredients[i] = ingredient;
-                        break;
-                    }
+                    errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
-                LoadAllIngredients();
-                //clear ingredient field only
+                else
+                {
+
+                    for (int i = 0; i < recipeIngredients.Count; i++)
+                    {
+                        RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
+                        if (recipeIngredients[i].Equals(ingredient))
+                        {
+                            recipeIngredients[i] = ingredient;
+                            break;
+                        }
+                    }
+                    LoadAllIngredients();
+                    //clear ingredient field only
+                }
             }
             else
             {
@@ -246,5 +377,30 @@ namespace FoodIt.FoodIt.views
             dgvIngredientDetail.DataSource = dtIngredient;
         }
         #endregion
+
+        private void txtIngredientAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar)) return;
+            if (Char.IsControl(e.KeyChar)) return;
+            if ((e.KeyChar == '.') && (txtIngredientAmount.Text.Contains(".") == false)) return;
+            if ((e.KeyChar == '.') && (txtIngredientAmount.SelectionLength == txtIngredientAmount.TextLength)) return;
+            e.Handled = true;
+        }
+
+        private void txtIngredient_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtIngredient.Text))
+            {
+                IngredientDAO ingredientDAO = new IngredientDAO();
+                string ingreName = txtIngredient.Text;
+                string unit = ingredientDAO.GetIngredientUnitByName(ingreName);
+                lblUnit.Text = unit;
+            }
+        }
+
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
     }
 }
