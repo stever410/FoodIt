@@ -271,7 +271,6 @@ namespace FoodIt.FoodIt.views
             string name = txtIngredient.Text;
             int id = dao.GetIngredientIDByName(name);
             string amount = txtIngredientAmount.Text;
-            string unit = txtUnit.Text;
             string note = txtNote.Text;
             if (id > 0)
             {
@@ -279,16 +278,10 @@ namespace FoodIt.FoodIt.views
                 {
                     errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
-                else if (string.IsNullOrEmpty(unit))
-                {
-                    errProvider.SetError(txtIngredientAmount, "");
-                    errProvider.SetError(txtUnit, "Unit must not be blank.");
-                }
                 else
                 {
                     errProvider.SetError(txtIngredientAmount, "");
-                    errProvider.SetError(txtUnit, "");
-                    RecipeIngredient ingredient = new RecipeIngredient(id, amount, unit, note);
+                    RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
                     if (recipeIngredients.Contains(ingredient))
                     {
                         //Neu trong list da co ingredient roi thi chi duoc update hoac delete
@@ -313,7 +306,6 @@ namespace FoodIt.FoodIt.views
             string name = txtIngredient.Text;
             int id = dao.GetIngredientIDByName(name);
             string amount = txtIngredientAmount.Text;
-            string unit = txtUnit.Text;
             string note = txtNote.Text;
             if (id > 0)
             {
@@ -321,17 +313,12 @@ namespace FoodIt.FoodIt.views
                 {
                     errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
-                else if (string.IsNullOrEmpty(unit))
-                {
-                    errProvider.SetError(txtIngredientAmount, "");
-                    errProvider.SetError(txtUnit, "Unit must not be blank.");
-                }
                 else
                 {
 
                     for (int i = 0; i < recipeIngredients.Count; i++)
                     {
-                        RecipeIngredient ingredient = new RecipeIngredient(id, amount, unit, note);
+                        RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
                         if (recipeIngredients[i].Equals(ingredient))
                         {
                             recipeIngredients[i] = ingredient;
@@ -357,7 +344,7 @@ namespace FoodIt.FoodIt.views
             {
                 for (int i = 0; i < recipeIngredients.Count; i++)
                 {
-                    RecipeIngredient ingredient = new RecipeIngredient(id, null, null, null);
+                    RecipeIngredient ingredient = new RecipeIngredient(id, null, null);
                     if (recipeIngredients[i].Equals(ingredient))
                     {
                         recipeIngredients.RemoveAt(i);
@@ -380,7 +367,6 @@ namespace FoodIt.FoodIt.views
             dtIngredient.Columns.Add("IngredientID");
             dtIngredient.Columns.Add("IngredientName");
             dtIngredient.Columns.Add("Amount");
-            dtIngredient.Columns.Add("Unit");
             dtIngredient.Columns.Add("Note");
             for (int i = 0; i < recipeIngredients.Count; i++)
             {
@@ -388,31 +374,18 @@ namespace FoodIt.FoodIt.views
                 dr["IngredientID"] = recipeIngredients[i].IngredientID;
                 dr["IngredientName"] = dao.GetIngredientNameByID(recipeIngredients[i].IngredientID);
                 dr["Amount"] = recipeIngredients[i].AmountIngredient;
-                dr["Unit"] = recipeIngredients[i].Unit;
                 dr["Note"] = recipeIngredients[i].Note;
                 dtIngredient.Rows.Add(dr);
             }
             txtIngredient.DataBindings.Clear();
             txtIngredientAmount.DataBindings.Clear();
             txtNote.DataBindings.Clear();
-            txtUnit.DataBindings.Clear();
             txtIngredient.DataBindings.Add("Text", dtIngredient, "IngredientName");
             txtIngredientAmount.DataBindings.Add("Text", dtIngredient, "Amount");
-            txtUnit.DataBindings.Add("Text", dtIngredient, "Unit");
             txtNote.DataBindings.Add("Text", dtIngredient, "Note");
             dgvIngredientDetail.DataSource = dtIngredient;
         }
         #endregion
-
-        private void txtIngredientAmount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar)) return;
-            if (Char.IsControl(e.KeyChar)) return;
-            if ((e.KeyChar == '.') && (txtIngredientAmount.Text.Contains(".") == false)) return;
-            if ((e.KeyChar == '.') && (txtIngredientAmount.SelectionLength == txtIngredientAmount.TextLength)) return;
-            e.Handled = true;
-        }
-
         private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
         {
 

@@ -30,7 +30,7 @@ namespace FoodIt.FoodIt.daos
                         {
                             cmd.Parameters.AddWithValue("@recipe_id", recipeID);
                             cmd.Parameters.AddWithValue("@irgre_id", recipeIngredient.IngredientID);
-                            cmd.Parameters.AddWithValue("@amount_ingre", recipeIngredient.AmountIngredient + " " + recipeIngredient.Unit);
+                            cmd.Parameters.AddWithValue("@amount_ingre", recipeIngredient.AmountIngredient);
                             cmd.Parameters.AddWithValue("@note", recipeIngredient.Note);
                             cmd.ExecuteNonQuery();
                         }

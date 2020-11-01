@@ -12,13 +12,11 @@ namespace FoodIt.FoodIt.dtos
         private int ingredientID;
         private string amountIngredient;
         private string note;
-        private string unit;
 
-        public RecipeIngredient(int ingredientID, string amountIngredient, string unit, string note)
+        public RecipeIngredient(int ingredientID, string amountIngredient, string note)
         {
             this.ingredientID = ingredientID;
             this.amountIngredient = amountIngredient;
-            this.unit = unit;
             this.note = note;
         }
 
@@ -34,7 +32,6 @@ namespace FoodIt.FoodIt.dtos
         public int IngredientID { get => ingredientID; set => ingredientID = value; }
         public string AmountIngredient { get => amountIngredient; set => amountIngredient = value; }
         public string Note { get => note; set => note = value; }
-        public string Unit { get => unit; set => unit = value; }
 
         public override bool Equals(object obj)
         {
