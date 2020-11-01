@@ -99,7 +99,6 @@
     <Compile Include="FoodIt.views\IngredientTag.Designer.cs">
       <DependentUpon>IngredientTag.cs</DependentUpon>
     </Compile>
-    <Compile Include="FoodIt.views\List.cs" />
     <Compile Include="FoodIt.views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

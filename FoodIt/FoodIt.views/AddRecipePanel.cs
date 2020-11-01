@@ -40,9 +40,17 @@ namespace FoodIt.FoodIt.views
             string title = txtTitle.Text;
             string image = txtImage.Text;
             string description = txtDescription.Text;
-            if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(image) || string.IsNullOrEmpty(description))
+            if (string.IsNullOrEmpty(title))
             {
-                MessageBox.Show("Please complete title, image, description");
+                MessageBox.Show("Maybe you forgot the name of the recipe :v");
+            }
+            else if (string.IsNullOrEmpty(image))
+            {
+                MessageBox.Show("Recipe with image will be more attractive :v");
+            }
+            else if (string.IsNullOrEmpty(description))
+            {
+                MessageBox.Show("Maybe you forgot describe something about your recipe :v");
             }
             else
             {
@@ -145,6 +153,14 @@ namespace FoodIt.FoodIt.views
             txtStepImage.DataBindings.Add("Text", dtStep, "Image");
             dgvStepDetail.DataSource = dtStep;
         }
+        private void updateStepOrder()
+        {
+            for (int i = 0; i < recipeSteps.Count; i++)
+            {
+                recipeSteps[i].Id = i + 1;
+            }
+            stepIndex = recipeSteps.Count;
+        }
 
         private void btnAddStep_Click(object sender, EventArgs e)
         {
@@ -163,9 +179,6 @@ namespace FoodIt.FoodIt.views
                 RecipeStep step = new RecipeStep(id, description, image);
                 recipeSteps.Add(step);
                 LoadAllSteps();
-                txtStepOrder.Clear();
-                txtStepDescription.Clear();
-                txtStepImage.Clear();
             }
         }
 
@@ -215,6 +228,7 @@ namespace FoodIt.FoodIt.views
                     break;
                 }
             }
+            updateStepOrder();
             LoadAllSteps();
         }
         #endregion
@@ -236,7 +250,6 @@ namespace FoodIt.FoodIt.views
         {
             recipeFileDlg.ShowDialog();
         }
-
         private void recipeFileDlg_FileOk(object sender, CancelEventArgs e)
         {
             try
@@ -257,7 +270,8 @@ namespace FoodIt.FoodIt.views
             IngredientDAO dao = new IngredientDAO();
             string name = txtIngredient.Text;
             int id = dao.GetIngredientIDByName(name);
-            string amount = txtIngredientAmount.Text + " " + lblUnit.Text;
+            string amount = txtIngredientAmount.Text;
+            string unit = txtUnit.Text;
             string note = txtNote.Text;
             if (id > 0)
             {
@@ -265,17 +279,20 @@ namespace FoodIt.FoodIt.views
                 {
                     errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
+                else if (string.IsNullOrEmpty(unit))
+                {
+                    errProvider.SetError(txtIngredientAmount, "");
+                    errProvider.SetError(txtUnit, "Unit must not be blank.");
+                }
                 else
                 {
                     errProvider.SetError(txtIngredientAmount, "");
-                    RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
+                    errProvider.SetError(txtUnit, "");
+                    RecipeIngredient ingredient = new RecipeIngredient(id, amount, unit, note);
                     if (recipeIngredients.Contains(ingredient))
                     {
                         //Neu trong list da co ingredient roi thi chi duoc update hoac delete
                         MessageBox.Show(name + " has already existed. You can only update or delete it");
-                        txtIngredientAmount.Clear();
-                        txtIngredient.Clear();
-                        txtNote.Clear();
                     }
                     else
                     {
@@ -290,13 +307,13 @@ namespace FoodIt.FoodIt.views
                 MessageBox.Show("Invalid ingredient");
             }
         }
-
         private void btnUpdateIngre_Click(object sender, EventArgs e)
         {
             IngredientDAO dao = new IngredientDAO();
             string name = txtIngredient.Text;
             int id = dao.GetIngredientIDByName(name);
             string amount = txtIngredientAmount.Text;
+            string unit = txtUnit.Text;
             string note = txtNote.Text;
             if (id > 0)
             {
@@ -304,12 +321,17 @@ namespace FoodIt.FoodIt.views
                 {
                     errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
+                else if (string.IsNullOrEmpty(unit))
+                {
+                    errProvider.SetError(txtIngredientAmount, "");
+                    errProvider.SetError(txtUnit, "Unit must not be blank.");
+                }
                 else
                 {
 
                     for (int i = 0; i < recipeIngredients.Count; i++)
                     {
-                        RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
+                        RecipeIngredient ingredient = new RecipeIngredient(id, amount, unit, note);
                         if (recipeIngredients[i].Equals(ingredient))
                         {
                             recipeIngredients[i] = ingredient;
@@ -335,7 +357,7 @@ namespace FoodIt.FoodIt.views
             {
                 for (int i = 0; i < recipeIngredients.Count; i++)
                 {
-                    RecipeIngredient ingredient = new RecipeIngredient(id, null, null);
+                    RecipeIngredient ingredient = new RecipeIngredient(id, null, null, null);
                     if (recipeIngredients[i].Equals(ingredient))
                     {
                         recipeIngredients.RemoveAt(i);
@@ -358,6 +380,7 @@ namespace FoodIt.FoodIt.views
             dtIngredient.Columns.Add("IngredientID");
             dtIngredient.Columns.Add("IngredientName");
             dtIngredient.Columns.Add("Amount");
+            dtIngredient.Columns.Add("Unit");
             dtIngredient.Columns.Add("Note");
             for (int i = 0; i < recipeIngredients.Count; i++)
             {
@@ -365,14 +388,17 @@ namespace FoodIt.FoodIt.views
                 dr["IngredientID"] = recipeIngredients[i].IngredientID;
                 dr["IngredientName"] = dao.GetIngredientNameByID(recipeIngredients[i].IngredientID);
                 dr["Amount"] = recipeIngredients[i].AmountIngredient;
+                dr["Unit"] = recipeIngredients[i].Unit;
                 dr["Note"] = recipeIngredients[i].Note;
                 dtIngredient.Rows.Add(dr);
             }
             txtIngredient.DataBindings.Clear();
             txtIngredientAmount.DataBindings.Clear();
             txtNote.DataBindings.Clear();
+            txtUnit.DataBindings.Clear();
             txtIngredient.DataBindings.Add("Text", dtIngredient, "IngredientName");
             txtIngredientAmount.DataBindings.Add("Text", dtIngredient, "Amount");
+            txtUnit.DataBindings.Add("Text", dtIngredient, "Unit");
             txtNote.DataBindings.Add("Text", dtIngredient, "Note");
             dgvIngredientDetail.DataSource = dtIngredient;
         }
@@ -385,17 +411,6 @@ namespace FoodIt.FoodIt.views
             if ((e.KeyChar == '.') && (txtIngredientAmount.Text.Contains(".") == false)) return;
             if ((e.KeyChar == '.') && (txtIngredientAmount.SelectionLength == txtIngredientAmount.TextLength)) return;
             e.Handled = true;
-        }
-
-        private void txtIngredient_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtIngredient.Text))
-            {
-                IngredientDAO ingredientDAO = new IngredientDAO();
-                string ingreName = txtIngredient.Text;
-                string unit = ingredientDAO.GetIngredientUnitByName(ingreName);
-                lblUnit.Text = unit;
-            }
         }
 
         private void bindingNavigator1_RefreshItems(object sender, EventArgs e)

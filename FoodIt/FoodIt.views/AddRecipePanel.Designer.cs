@@ -60,6 +60,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblUnit = new System.Windows.Forms.Label();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -78,7 +79,7 @@
             this.dgvStepDetail = new System.Windows.Forms.DataGridView();
             this.stepFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.bsStep = new System.Windows.Forms.BindingSource(this.components);
-            this.lblUnit = new System.Windows.Forms.Label();
+            this.txtUnit = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -153,7 +154,7 @@
             this.txtIngredientAmount.PlaceholderText = "";
             this.txtIngredientAmount.SelectedText = "";
             this.txtIngredientAmount.ShadowDecoration.Parent = this.txtIngredientAmount;
-            this.txtIngredientAmount.Size = new System.Drawing.Size(308, 36);
+            this.txtIngredientAmount.Size = new System.Drawing.Size(135, 36);
             this.txtIngredientAmount.TabIndex = 55;
             this.txtIngredientAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIngredientAmount_KeyPress);
             // 
@@ -181,7 +182,6 @@
             this.txtIngredient.ShadowDecoration.Parent = this.txtIngredient;
             this.txtIngredient.Size = new System.Drawing.Size(366, 36);
             this.txtIngredient.TabIndex = 54;
-            this.txtIngredient.Leave += new System.EventHandler(this.txtIngredient_Leave);
             // 
             // label6
             // 
@@ -583,6 +583,7 @@
             // 
             this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.AutoScroll = true;
+            this.guna2Panel1.Controls.Add(this.txtUnit);
             this.guna2Panel1.Controls.Add(this.lblUnit);
             this.guna2Panel1.Controls.Add(this.bindingNavigator1);
             this.guna2Panel1.Controls.Add(this.label12);
@@ -622,6 +623,17 @@
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1342, 852);
             this.guna2Panel1.TabIndex = 91;
+            // 
+            // lblUnit
+            // 
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.BackColor = System.Drawing.Color.Transparent;
+            this.lblUnit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnit.Location = new System.Drawing.Point(1089, 383);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(39, 21);
+            this.lblUnit.TabIndex = 96;
+            this.lblUnit.Text = "Unit";
             // 
             // bindingNavigator1
             // 
@@ -803,16 +815,28 @@
             this.stepFileDlg.ShowHelp = true;
             this.stepFileDlg.FileOk += new System.ComponentModel.CancelEventHandler(this.stepFileDlg_FileOk);
             // 
-            // lblUnit
+            // txtUnit
             // 
-            this.lblUnit.AutoSize = true;
-            this.lblUnit.BackColor = System.Drawing.Color.Transparent;
-            this.lblUnit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnit.Location = new System.Drawing.Point(1251, 398);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(39, 21);
-            this.lblUnit.TabIndex = 96;
-            this.lblUnit.Text = "Unit";
+            this.txtUnit.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUnit.DefaultText = "";
+            this.txtUnit.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUnit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUnit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUnit.DisabledState.Parent = this.txtUnit;
+            this.txtUnit.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUnit.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUnit.FocusedState.Parent = this.txtUnit;
+            this.txtUnit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUnit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUnit.HoverState.Parent = this.txtUnit;
+            this.txtUnit.Location = new System.Drawing.Point(1134, 383);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.PasswordChar = '\0';
+            this.txtUnit.PlaceholderText = "";
+            this.txtUnit.SelectedText = "";
+            this.txtUnit.ShadowDecoration.Parent = this.txtUnit;
+            this.txtUnit.Size = new System.Drawing.Size(169, 36);
+            this.txtUnit.TabIndex = 97;
             // 
             // AddRecipePanel
             // 
@@ -887,5 +911,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Label lblUnit;
+        private Guna.UI2.WinForms.Guna2TextBox txtUnit;
     }
 }
