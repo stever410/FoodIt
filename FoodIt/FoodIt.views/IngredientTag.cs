@@ -12,15 +12,21 @@ namespace FoodIt.FoodIt.views
 {
     public partial class IngredientTag : UserControl
     {
-        public IngredientTag(string tagName)
+        List<string> ingredients;
+        string tagName;
+
+        public IngredientTag(string tagName, List<string> ingredients)
         {
             InitializeComponent();
             lblIngredient.Text = tagName;
+            this.ingredients = ingredients;
+            this.tagName = tagName;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            ingredients.Remove(tagName);
+            Dispose();
         }
     }
 }

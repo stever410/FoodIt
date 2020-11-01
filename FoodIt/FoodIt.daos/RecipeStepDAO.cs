@@ -37,14 +37,11 @@ namespace FoodIt.FoodIt.daos
                                 int id = (int)reader["step_id"];
                                 string desc = reader["description"] as string;
                                 string image = reader["image"] as string;
-
                                 RecipeStep step = new RecipeStep(id, desc, image);
-
                                 if (steps == null)
                                 {
                                     steps = new List<RecipeStep>();
                                 }
-
                                 steps.Add(step);
                             }
                         }

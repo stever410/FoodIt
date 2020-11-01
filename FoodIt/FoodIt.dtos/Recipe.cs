@@ -20,8 +20,9 @@ namespace FoodIt.FoodIt.dtos
         private List<RecipeStep> recipeSteps;
         private List<Ingredient> ingredients;
 
-        public Recipe(string title, DateTime date, string image)
+        public Recipe(int id, string title, DateTime date, string image)
         {
+            this.id = id;
             this.title = title;
             this.date = date;
             this.image = image;
@@ -58,5 +59,10 @@ namespace FoodIt.FoodIt.dtos
         public List<RecipeIngredient> RecipeIngredients { get => recipeIngredients; set => recipeIngredients = value; }
         public List<RecipeStep> RecipeSteps { get => recipeSteps; set => recipeSteps = value; }
         public List<Ingredient> Ingredients { get => ingredients; set => ingredients = value; }
+
+        public override string ToString()
+        {
+            return title;
+        }
     }
 }
