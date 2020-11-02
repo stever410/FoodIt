@@ -107,6 +107,8 @@ namespace FoodIt.FoodIt.views
             txtStepImage.Clear();
             recipeIngredients.Clear();
             recipeSteps.Clear();
+            LoadAllSteps();
+            LoadAllIngredients();
         }
 
         #region StepDetail
