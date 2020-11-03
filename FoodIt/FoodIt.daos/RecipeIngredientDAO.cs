@@ -18,7 +18,7 @@ namespace FoodIt.FoodIt.daos
         {
             try
             {
-                string sql = "Insert RecipeIngredient values(@recipe_id, @irgre_id, @amount_ingre, @note)";
+                string sql = "Insert RecipeIngredient values(@recipe_id, @ingre_id, @amount_ingre, @note)";
                 using (cnn = MyConnection.GetMyConnection())
                 {
                     cnn.Open();
@@ -26,10 +26,12 @@ namespace FoodIt.FoodIt.daos
                     using (cmd = new SqlCommand(sql, cnn))
                     {
                         cmd.Transaction = transaction;
+                        
                         foreach (RecipeIngredient recipeIngredient in recipeIngredients)
                         {
+                            cmd.Parameters.Clear();
                             cmd.Parameters.AddWithValue("@recipe_id", recipeID);
-                            cmd.Parameters.AddWithValue("@irgre_id", recipeIngredient.IngredientID);
+                            cmd.Parameters.AddWithValue("@ingre_id", recipeIngredient.IngredientID);
                             cmd.Parameters.AddWithValue("@amount_ingre", recipeIngredient.AmountIngredient);
                             cmd.Parameters.AddWithValue("@note", recipeIngredient.Note);
                             cmd.ExecuteNonQuery();

@@ -68,9 +68,9 @@ namespace FoodIt.FoodIt.daos
                     SqlTransaction transaction = cnn.BeginTransaction();
                     using (cmd = new SqlCommand(sql, cnn))
                     {
+                        cmd.Transaction = transaction;
                         foreach (RecipeStep step in steps)
                         {
-                            cmd.Transaction = transaction;
                             cmd.Parameters.Clear();
                             cmd.Parameters.AddWithValue("@recipe_id", recipeID);
                             cmd.Parameters.AddWithValue("@description", step.Description);
@@ -85,7 +85,6 @@ namespace FoodIt.FoodIt.daos
             catch (SqlException se)
             {
                 throw new Exception(se.Message);
-                return false;
             }
         }
     }
