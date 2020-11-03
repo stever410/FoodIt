@@ -25,8 +25,6 @@ namespace FoodIt.FoodIt.daos
             List<Recipe> list = null;
             string sql = "SELECT recipe_id, title, date, image " +
                 "FROM Recipe WHERE status NOT LIKE 'deleted'";
-            conn = MyConnection.GetMyConnection();
-            cmd = new SqlCommand(sql, conn);
             try
             {
                 using (conn = MyConnection.GetMyConnection())
@@ -43,7 +41,9 @@ namespace FoodIt.FoodIt.daos
                                 string title = reader["title"] as string;
                                 DateTime date = reader.GetDateTime(2);
                                 string image = reader["image"] as string;
+                              
                                 recipe = new Recipe(id, title, date, image);
+                              
                                 if (list == null)
                                 {
                                     list = new List<Recipe>();
@@ -100,7 +100,6 @@ namespace FoodIt.FoodIt.daos
         public List<Recipe> GetRecipesByIngredients(List<string> ingredients)
         {
             List<Recipe> list = null;
-
             try
             {
                 using (conn = MyConnection.GetMyConnection())
@@ -147,6 +146,34 @@ namespace FoodIt.FoodIt.daos
                 throw new Exception(se.Message);
             }
             return list;
+        }
+      
+        public int AddRecipe(Recipe recipe)
+        {
+            try
+            {
+                string sql = "Insert Recipe output INSERTED.recipe_id values(@email, @title, @description, @status, @date, @image, @category)";
+                using (conn = MyConnection.GetMyConnection())
+                {
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, cnn))
+                    {
+                        cmd.Parameters.AddWithValue("@email", recipe.Email);
+                        cmd.Parameters.AddWithValue("@title", recipe.Title);
+                        cmd.Parameters.AddWithValue("@description", recipe.Description);
+                        cmd.Parameters.AddWithValue("@status", recipe.Status);
+                        cmd.Parameters.AddWithValue("@date", recipe.Date);
+                        cmd.Parameters.AddWithValue("@image", recipe.Image);
+                        cmd.Parameters.AddWithValue("@category", "");
+                        //return cmd.ExecuteNonQuery() > 0;
+                        return (int)cmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw new Exception(se.Message);
+            }
         }
     }
 }

@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="FoodIt.daos\IngredientDAO.cs" />
     <Compile Include="FoodIt.daos\RecipeDAO.cs" />
+    <Compile Include="FoodIt.daos\RecipeIngredientDAO.cs" />
     <Compile Include="FoodIt.daos\RecipeStepDAO.cs" />
     <Compile Include="FoodIt.daos\UserDAO.cs" />
     <Compile Include="FoodIt.db\MyConnection.cs" />

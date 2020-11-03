@@ -52,8 +52,38 @@ namespace FoodIt.FoodIt.daos
             {
                 throw e;
             }
-
             return steps;
+        }
+
+        public bool AddRecipeSteps(int recipeID, List<RecipeStep> steps)
+        {
+            try
+            {
+                string sql = "Insert RecipeStep values(@recipe_id, @description, @image)";
+                using (cnn = MyConnection.GetMyConnection())
+                {
+                    cnn.Open();
+                    SqlTransaction transaction = cnn.BeginTransaction();
+                    using (cmd = new SqlCommand(sql, cnn))
+                    {
+                        cmd.Transaction = transaction;
+                        foreach (RecipeStep step in steps)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@recipe_id", recipeID);
+                            cmd.Parameters.AddWithValue("@description", step.Description);
+                            cmd.Parameters.AddWithValue("@image", step.Image);
+                            cmd.ExecuteNonQuery();
+                        }
+                        transaction.Commit();
+                        return true;
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw new Exception(se.Message);
+            }
         }
     }
 }

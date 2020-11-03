@@ -159,5 +159,33 @@ namespace FoodIt.FoodIt.daos
 
             return ingredients;
         }
+        public string GetIngredientUnitByName(string name)
+        {
+            string unit = null;
+            string sql = "Select unit From Ingredient Where name = @name";
+            try
+            {
+                using (cnn = MyConnection.GetMyConnection())
+                {
+                    cnn.Open();
+                    using (cmd = new SqlCommand(sql, cnn))
+                    {
+                        cmd.Parameters.AddWithValue("@name", name);
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                unit = reader["unit"].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw new Exception(se.Message);
+            }
+            return unit;
+        }
     }
 }
