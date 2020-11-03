@@ -73,7 +73,7 @@ namespace FoodIt.FoodIt.daos
                     conn.Open();
                     using (cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@search", search);
+                        cmd.Parameters.AddWithValue("@search", "%" + search + "%");
                         using (reader = cmd.ExecuteReader())
                         {
                             list = new List<Recipe>();

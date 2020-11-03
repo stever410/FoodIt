@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using FoodIt.FoodIt.daos;
 using FoodIt.FoodIt.dtos;
-using FoodIt.FoodIt.daos;
-using Guna.UI2.WinForms;
 using FoodIt.FoodIt.views;
-using System.Globalization;
+using Guna.UI2.WinForms;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace FoodIt
 {
     public partial class FoodGridPanel : UserControl
     {
-        private const int INGREDIENT = 0;
-        private const int RECIPE = 1;
         private const int ROWS = 4;
         private const int COLS = 4;
         private List<Recipe> recipes;
@@ -27,7 +19,7 @@ namespace FoodIt
         private int pageNo = 1;
         private Guna2Panel mainPnl;
         private List<string> searchIngredients; // all the ingredients the user input
-        AutoCompleteStringCollection ingredientsAutoCompleteCollection;
+        private List<string> ingredientsAutoCompleteCollection;
 
         public FoodGridPanel(Guna2Panel mainPnl)
         {
@@ -35,7 +27,7 @@ namespace FoodIt
             this.Dock = DockStyle.Fill;
             this.mainPnl = mainPnl;
             searchIngredients = new List<string>();
-            ingredientsAutoCompleteCollection = new AutoCompleteStringCollection();
+            ingredientsAutoCompleteCollection = new List<string>();
         }
 
         private void LoadFoodGrid()
@@ -78,7 +70,8 @@ namespace FoodIt
             {
                 ingredientsAutoCompleteCollection.Add(ingredient.Name);
             }
-            txtIngredient.AutoCompleteCustomSource = ingredientsAutoCompleteCollection;
+            // add all ingredients to ingredients autocomplete array
+            txtIngredient.AutoCompleteCustomSource.AddRange(ingredientsAutoCompleteCollection.ToArray());
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -137,18 +130,22 @@ namespace FoodIt
                     MessageBox.Show("Input ingredient first");
                     return;
                 }
-                // this function will turn the first letter to Capitalized
-                string ingredient = txtIngredient.Text.First().ToString().ToUpper() + txtIngredient.Text.Substring(1).ToLower();
-                if (searchIngredients.Contains(ingredient))
+                string ingredientName = txtIngredient.Text;
+                // check if the search ingredients list contain the ingredient 
+                if (searchIngredients.Contains(ingredientName, StringComparer.OrdinalIgnoreCase))
                 {
                     MessageBox.Show("Tag already exist");
                     return;
                 }
-                if(ingredientsAutoCompleteCollection.Contains(ingredient)) 
+                // check if the ingredient exist (ignored case) in db
+                int ingredientIdx = ingredientsAutoCompleteCollection.FindIndex(ingredient => ingredient.Equals(ingredientName, StringComparison.OrdinalIgnoreCase));
+                if(ingredientIdx > -1) 
                 {
+                    //replace the ingredient name with the name in db
+                    ingredientName = ingredientsAutoCompleteCollection[ingredientIdx];
                     // add the ingredient to the search list
-                    searchIngredients.Add(ingredient);
-                    IngredientTag tag = new IngredientTag(ingredient, searchIngredients);
+                    searchIngredients.Add(ingredientName);
+                    IngredientTag tag = new IngredientTag(ingredientName, searchIngredients);
                     // Add tag then empty text box
                     pnlIngredients.Controls.Add(tag);
                     txtIngredient.Text = string.Empty;
