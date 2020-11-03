@@ -156,7 +156,7 @@ namespace FoodIt.FoodIt.daos
                 using (conn = MyConnection.GetMyConnection())
                 {
                     conn.Open();
-                    using (cmd = new SqlCommand(sql, cnn))
+                    using (cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@email", recipe.Email);
                         cmd.Parameters.AddWithValue("@title", recipe.Title);
