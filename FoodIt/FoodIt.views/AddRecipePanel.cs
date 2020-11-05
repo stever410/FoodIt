@@ -29,7 +29,10 @@ namespace FoodIt.FoodIt.views
         {
             InitializeComponent();
             this.user = user;
-            workingDirectory = Environment.CurrentDirectory;
+            
+            // this function will always get the directory where your project is
+            // whilst Environment.CurrentDicrectory isn't
+            workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
             projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
         }
 
@@ -86,7 +89,14 @@ namespace FoodIt.FoodIt.views
                     {
                         foreach (string imageName in imagePaths.Keys)
                         {
-                            string destFile = Path.Combine(path, imageName);
+                            // if step image is null then let it be
+                            if (string.IsNullOrWhiteSpace(imagePaths[imageName]))
+                            {
+                                continue;
+                            }
+
+                            string filename = Path.GetFileName(imagePaths[imageName]);
+                            string destFile = Path.Combine(path, filename);
                             File.Copy(imagePaths[imageName], destFile, true);
                         }
                     }

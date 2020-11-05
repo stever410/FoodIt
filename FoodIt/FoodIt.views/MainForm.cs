@@ -12,8 +12,6 @@ namespace FoodIt
         public MainForm()
         {
             InitializeComponent();
-            FoodGridPanel foodGridPanel = new FoodGridPanel(this.mainPnl);
-            this.mainPnl.Controls.Add(foodGridPanel);
             AutoScaleMode = AutoScaleMode.Font;
         }
 
@@ -21,6 +19,9 @@ namespace FoodIt
         private void FormMain_Load(object sender, EventArgs e)
         {
             this.btnUser.Text = User.Username;
+            FoodGridPanel foodGridPanel = new FoodGridPanel(this.mainPnl);
+            foodGridPanel.User = this.User;
+            this.mainPnl.Controls.Add(foodGridPanel);
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -41,7 +42,14 @@ namespace FoodIt
             mainPnl.Controls.Clear();
             FoodGridPanel foodGridPanel = new FoodGridPanel(this.mainPnl);
             //foodGridPanel.Dock = DockStyle.Top;
+            foodGridPanel.User = this.User;
             this.mainPnl.Controls.Add(foodGridPanel);
+        }
+
+        public void RenderOnMainPanel(UserControl panel)
+        {
+            this.mainPnl.Controls.Clear();
+            this.mainPnl.Controls.Add(panel);
         }
     }
 }

@@ -11,14 +11,19 @@ using FoodIt.FoodIt.dtos;
 using System.IO;
 using FoodIt.FoodIt.daos;
 using Guna.UI2.WinForms;
+using FoodIt.dtos;
 
 namespace FoodIt.FoodIt.views
 {
     public partial class ViewRecipePanel : UserControl
     {
         private Recipe recipe;
-        public ViewRecipePanel(Recipe recipe)
+        private User user;
+        private MainForm mainForm;
+        public ViewRecipePanel(Recipe recipe, User user)
         {
+            this.user = user;
+
             InitializeComponent();
             this.Dock = DockStyle.Fill;
 
@@ -51,7 +56,16 @@ namespace FoodIt.FoodIt.views
             
             // add this to panel
             this.ingrePanel.Controls.Add(lblDetails);
+
+            // add update button
+            if (!this.User.Email.Equals(recipe.Email))
+            {
+                controlPanel.Hide();
+            }
         }
+
+        public User User { get => user; set => user = value; }
+        public MainForm MainForm { get => mainForm; set => mainForm = value; }
 
         public string RenderIngredients()
         {
@@ -73,6 +87,19 @@ namespace FoodIt.FoodIt.views
             }
 
             return result;
+        }
+
+        private void btnUpdateRecipe_Click(object sender, EventArgs e)
+        {
+            // create new update panel
+            UpdateRecipePanel updateRecipePanel = new UpdateRecipePanel(this.User, this.recipe);
+
+            // set the mainform to update panel
+            MainForm mainForm = this.MainForm;
+            updateRecipePanel.MainForm = mainForm;
+
+            // render on view
+            mainForm.RenderOnMainPanel(updateRecipePanel);
         }
     }
 }

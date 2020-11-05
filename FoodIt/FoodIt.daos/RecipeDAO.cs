@@ -23,7 +23,7 @@ namespace FoodIt.FoodIt.daos
         public List<Recipe> GetAllRecipes()
         {
             List<Recipe> list = null;
-            string sql = "SELECT recipe_id, title, date, image " +
+            string sql = "SELECT recipe_id, title, date, image, email, description " +
                 "FROM Recipe WHERE status NOT LIKE 'deleted'";
             try
             {
@@ -41,9 +41,13 @@ namespace FoodIt.FoodIt.daos
                                 string title = reader["title"] as string;
                                 DateTime date = reader.GetDateTime(2);
                                 string image = reader["image"] as string;
+                                string email = reader["email"] as string;
+                                string desc = reader["description"] as string;
                               
                                 recipe = new Recipe(id, title, date, image);
-                              
+                                recipe.Email = email;
+                                recipe.Description = desc;
+
                                 if (list == null)
                                 {
                                     list = new List<Recipe>();
@@ -64,7 +68,7 @@ namespace FoodIt.FoodIt.daos
         public List<Recipe> GetRecipesBySearch(string search)
         {
             List<Recipe> list = null;
-            string sql = "SELECT recipe_id, title, date, image " +
+            string sql = "SELECT recipe_id, title, date, image, email " +
                         "FROM Recipe WHERE status NOT LIKE 'deleted' AND title LIKE @search";
             try
             {
@@ -83,7 +87,11 @@ namespace FoodIt.FoodIt.daos
                                 string title = reader["title"] as string;
                                 DateTime date = reader.GetDateTime(2);
                                 string image = reader["image"] as string;
+                                string email = reader["email"] as string;
+
                                 Recipe recipe = new Recipe(id, title, date, image);
+                                recipe.Email = email;
+
                                 list.Add(recipe);
                             }
                         }
@@ -174,6 +182,35 @@ namespace FoodIt.FoodIt.daos
             {
                 throw new Exception(se.Message);
             }
+        }
+
+        public bool UpdateRecipe(Recipe recipe)
+        {
+            bool check = false;
+            string sql = @"UPDATE dbo.Recipe SET title = @title, description = @desc,
+                            image = @image WHERE recipe_id = @id";
+            try
+            {
+                using (conn = MyConnection.GetMyConnection())
+                {
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@title", recipe.Title);
+                        cmd.Parameters.AddWithValue("@desc", recipe.Description);
+                        cmd.Parameters.AddWithValue("@image", recipe.Image);
+                        cmd.Parameters.AddWithValue("@id", recipe.Id);
+
+                        check = cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw se;
+            }
+
+            return check;
         }
     }
 }

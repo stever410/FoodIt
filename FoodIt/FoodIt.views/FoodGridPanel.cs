@@ -1,4 +1,5 @@
-﻿using FoodIt.FoodIt.daos;
+﻿using FoodIt.dtos;
+using FoodIt.FoodIt.daos;
 using FoodIt.FoodIt.dtos;
 using FoodIt.FoodIt.views;
 using Guna.UI2.WinForms;
@@ -20,12 +21,16 @@ namespace FoodIt
         private Guna2Panel mainPnl;
         private List<string> searchIngredients; // all the ingredients the user input
         private List<string> ingredientsAutoCompleteCollection;
+        private User user;
+
+        public User User { get => user; set => user = value; }
 
         public FoodGridPanel(Guna2Panel mainPnl)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.mainPnl = mainPnl;
+
             searchIngredients = new List<string>();
             ingredientsAutoCompleteCollection = new List<string>();
         }
@@ -50,6 +55,9 @@ namespace FoodIt
 
                     // pass main panel
                     foodPanel.MainPnl = this.mainPnl;
+
+                    // pass user
+                    foodPanel.User = this.user;
 
                     pnlMain.Controls.Add(foodPanel, j, i);
                     recipeNo++;

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FoodIt.FoodIt.daos
 {
@@ -38,6 +39,8 @@ namespace FoodIt.FoodIt.daos
                                 string desc = reader["description"] as string;
                                 string image = reader["image"] as string;
                                 RecipeStep step = new RecipeStep(id, desc, image);
+                                step.RecipeID = recipe.Id;
+
                                 if (steps == null)
                                 {
                                     steps = new List<RecipeStep>();
@@ -84,6 +87,48 @@ namespace FoodIt.FoodIt.daos
             {
                 throw new Exception(se.Message);
             }
+        }
+
+        public bool DeleteRecipeSteps(int recipeID)
+        {
+            bool check = false;
+            try
+            {
+                string sql = "DELETE FROM dbo.RecipeStep WHERE recipe_id = @id";
+                using (cnn = MyConnection.GetMyConnection())
+                {
+                    cnn.Open();
+                    using (cmd = new SqlCommand(sql, cnn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", recipeID);
+
+                        check = cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw se;
+            }
+
+            return check;
+        }
+
+        public bool UpdateRecipeSteps(int recipeID, List<RecipeStep> steps)
+        {
+            bool check = false;
+            try
+            {
+                // Update by delete then add new :)
+                check = DeleteRecipeSteps(recipeID);
+                check &= AddRecipeSteps(recipeID, steps);
+            }
+            catch (SqlException se)
+            {
+                throw se;
+            }
+
+            return check;
         }
     }
 }

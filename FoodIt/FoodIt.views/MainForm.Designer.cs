@@ -1,4 +1,6 @@
-﻿namespace FoodIt
+﻿using Guna.UI2.WinForms;
+
+namespace FoodIt
 {
     partial class MainForm
     {

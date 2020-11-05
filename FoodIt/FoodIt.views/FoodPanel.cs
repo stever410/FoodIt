@@ -11,6 +11,7 @@ using FoodIt.FoodIt.dtos;
 using System.IO;
 using Guna.UI2.WinForms;
 using FoodIt.FoodIt.views;
+using FoodIt.dtos;
 
 namespace FoodIt
 {
@@ -18,8 +19,10 @@ namespace FoodIt
     {
         private Recipe recipe;
         private Guna2Panel mainPnl;
+        private User user;
 
         public Guna2Panel MainPnl { get => mainPnl; set => mainPnl = value; }
+        public User User { get => user; set => user = value; }
 
         public FoodPanel(Recipe recipe)
         {
@@ -30,7 +33,7 @@ namespace FoodIt
             string imgage = recipe.Image.Substring(recipe.Image.LastIndexOf('/') + 1);
 
             // This will get the current WORKING directory (i.e. \bin\Debug)
-            string workingDirectory = Environment.CurrentDirectory;
+            string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             // This will get the current PROJECT directory
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
@@ -68,7 +71,9 @@ namespace FoodIt
         private void FoodPanel_Click(object sender, EventArgs e)
         {
             this.mainPnl.Controls.Clear();
-            this.mainPnl.Controls.Add(new ViewRecipePanel(this.recipe));
+            ViewRecipePanel viewRecipePanel = new ViewRecipePanel(this.recipe, this.User);
+            viewRecipePanel.MainForm = this.mainPnl.Parent as MainForm;
+            this.mainPnl.Controls.Add(viewRecipePanel);
         }
     }
 }
