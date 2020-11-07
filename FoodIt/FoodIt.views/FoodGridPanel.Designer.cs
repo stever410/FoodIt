@@ -95,10 +95,10 @@
             this.flowLayoutPanel3.AutoSize = true;
             this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel3.Controls.Add(this.txtSearch);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(271, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(270, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(293, 67);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(295, 67);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // txtSearch
@@ -118,7 +118,8 @@
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtSearch.HoverState.Parent = this.txtSearch;
             this.txtSearch.IconRight = global::FoodIt.Properties.Resources.search;
-            this.txtSearch.Location = new System.Drawing.Point(3, 13);
+            this.txtSearch.Location = new System.Drawing.Point(4, 14);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Search";
@@ -276,7 +277,7 @@
             this.txtIngredient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtIngredient.DisabledState.Parent = this.txtIngredient;
             this.txtIngredient.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIngredient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIngredient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtIngredient.FocusedState.Parent = this.txtIngredient;
             this.txtIngredient.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIngredient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
