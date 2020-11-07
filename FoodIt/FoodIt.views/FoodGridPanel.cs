@@ -12,10 +12,10 @@ namespace FoodIt
 {
     public partial class FoodGridPanel : UserControl
     {
-        private const int ROWS = 4;
-        private const int COLS = 4;
+        private const int ROWS = 3;
+        private const int COLS = 3;
         private List<Recipe> recipes;
-        private const int PAGE_SIZE = 16;
+        private const int PAGE_SIZE = ROWS * COLS;
         private int totalRecords, totalPages;
         private int pageNo = 1;
         private Guna2Panel mainPnl;
@@ -52,7 +52,7 @@ namespace FoodIt
                 for (int j = 0; j < COLS; j++)
                 {
                     FoodPanel foodPanel = new FoodPanel(recipes[recipeNo]);
-
+                    foodPanel.Dock = DockStyle.Fill;
                     // pass main panel
                     foodPanel.MainPnl = this.mainPnl;
 

@@ -55,7 +55,7 @@
             // 
             this.lblIngredient.AutoEllipsis = true;
             this.lblIngredient.AutoSize = true;
-            this.lblIngredient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
+            this.lblIngredient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.lblIngredient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblIngredient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -72,7 +72,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.Controls.Add(this.lblIngredient);
             this.Controls.Add(this.btnDelete);
             this.Name = "IngredientTag";

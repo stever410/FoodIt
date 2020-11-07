@@ -82,10 +82,10 @@
             this.txtNote.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNote.DisabledState.Parent = this.txtNote;
             this.txtNote.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtNote.FocusedState.Parent = this.txtNote;
             this.txtNote.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtNote.HoverState.Parent = this.txtNote;
             this.txtNote.Location = new System.Drawing.Point(937, 446);
             this.txtNote.Name = "txtNote";
@@ -127,10 +127,10 @@
             this.txtIngredientAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtIngredientAmount.DisabledState.Parent = this.txtIngredientAmount;
             this.txtIngredientAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIngredientAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIngredientAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtIngredientAmount.FocusedState.Parent = this.txtIngredientAmount;
             this.txtIngredientAmount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtIngredientAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIngredientAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtIngredientAmount.HoverState.Parent = this.txtIngredientAmount;
             this.txtIngredientAmount.Location = new System.Drawing.Point(937, 383);
             this.txtIngredientAmount.Name = "txtIngredientAmount";
@@ -152,10 +152,10 @@
             this.txtIngredient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtIngredient.DisabledState.Parent = this.txtIngredient;
             this.txtIngredient.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIngredient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIngredient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtIngredient.FocusedState.Parent = this.txtIngredient;
             this.txtIngredient.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtIngredient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIngredient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtIngredient.HoverState.Parent = this.txtIngredient;
             this.txtIngredient.Location = new System.Drawing.Point(937, 317);
             this.txtIngredient.Name = "txtIngredient";
@@ -199,10 +199,10 @@
             this.txtTitle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTitle.DisabledState.Parent = this.txtTitle;
             this.txtTitle.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTitle.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTitle.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtTitle.FocusedState.Parent = this.txtTitle;
             this.txtTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTitle.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtTitle.HoverState.Parent = this.txtTitle;
             this.txtTitle.Location = new System.Drawing.Point(194, 107);
             this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -249,10 +249,10 @@
             this.txtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDescription.DisabledState.Parent = this.txtDescription;
             this.txtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtDescription.FocusedState.Parent = this.txtDescription;
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtDescription.HoverState.Parent = this.txtDescription;
             this.txtDescription.Location = new System.Drawing.Point(937, 107);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -306,10 +306,10 @@
             this.txtImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtImage.DisabledState.Parent = this.txtImage;
             this.txtImage.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtImage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtImage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtImage.FocusedState.Parent = this.txtImage;
             this.txtImage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtImage.HoverState.Parent = this.txtImage;
             this.txtImage.Location = new System.Drawing.Point(194, 178);
             this.txtImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -325,10 +325,11 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BorderRadius = 5;
             this.btnSubmit.CheckedState.Parent = this.btnSubmit;
             this.btnSubmit.CustomImages.Parent = this.btnSubmit;
-            this.btnSubmit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
-            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnSubmit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
             this.btnSubmit.HoverState.Parent = this.btnSubmit;
             this.btnSubmit.Location = new System.Drawing.Point(629, 804);
@@ -351,10 +352,11 @@
             // 
             // btnAddIngre
             // 
+            this.btnAddIngre.BorderRadius = 5;
             this.btnAddIngre.CheckedState.Parent = this.btnAddIngre;
             this.btnAddIngre.CustomImages.Parent = this.btnAddIngre;
-            this.btnAddIngre.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
-            this.btnAddIngre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddIngre.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnAddIngre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddIngre.ForeColor = System.Drawing.Color.White;
             this.btnAddIngre.HoverState.Parent = this.btnAddIngre;
             this.btnAddIngre.Location = new System.Drawing.Point(787, 525);
@@ -367,10 +369,11 @@
             // 
             // btnUpdateIngre
             // 
+            this.btnUpdateIngre.BorderRadius = 5;
             this.btnUpdateIngre.CheckedState.Parent = this.btnUpdateIngre;
             this.btnUpdateIngre.CustomImages.Parent = this.btnUpdateIngre;
-            this.btnUpdateIngre.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
-            this.btnUpdateIngre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnUpdateIngre.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnUpdateIngre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateIngre.ForeColor = System.Drawing.Color.White;
             this.btnUpdateIngre.HoverState.Parent = this.btnUpdateIngre;
             this.btnUpdateIngre.Location = new System.Drawing.Point(997, 525);
@@ -383,10 +386,11 @@
             // 
             // btnDeleteIngre
             // 
+            this.btnDeleteIngre.BorderRadius = 5;
             this.btnDeleteIngre.CheckedState.Parent = this.btnDeleteIngre;
             this.btnDeleteIngre.CustomImages.Parent = this.btnDeleteIngre;
-            this.btnDeleteIngre.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
-            this.btnDeleteIngre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDeleteIngre.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnDeleteIngre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteIngre.ForeColor = System.Drawing.Color.White;
             this.btnDeleteIngre.HoverState.Parent = this.btnDeleteIngre;
             this.btnDeleteIngre.Location = new System.Drawing.Point(1187, 525);
@@ -399,10 +403,11 @@
             // 
             // btnDeleteStep
             // 
+            this.btnDeleteStep.BorderRadius = 5;
             this.btnDeleteStep.CheckedState.Parent = this.btnDeleteStep;
             this.btnDeleteStep.CustomImages.Parent = this.btnDeleteStep;
-            this.btnDeleteStep.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
-            this.btnDeleteStep.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDeleteStep.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnDeleteStep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteStep.ForeColor = System.Drawing.Color.White;
             this.btnDeleteStep.HoverState.Parent = this.btnDeleteStep;
             this.btnDeleteStep.Location = new System.Drawing.Point(527, 525);
@@ -415,10 +420,11 @@
             // 
             // btnUpdateStep
             // 
+            this.btnUpdateStep.BorderRadius = 5;
             this.btnUpdateStep.CheckedState.Parent = this.btnUpdateStep;
             this.btnUpdateStep.CustomImages.Parent = this.btnUpdateStep;
-            this.btnUpdateStep.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
-            this.btnUpdateStep.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnUpdateStep.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnUpdateStep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateStep.ForeColor = System.Drawing.Color.White;
             this.btnUpdateStep.HoverState.Parent = this.btnUpdateStep;
             this.btnUpdateStep.Location = new System.Drawing.Point(305, 525);
@@ -431,10 +437,11 @@
             // 
             // btnAddStep
             // 
+            this.btnAddStep.BorderRadius = 5;
             this.btnAddStep.CheckedState.Parent = this.btnAddStep;
             this.btnAddStep.CustomImages.Parent = this.btnAddStep;
-            this.btnAddStep.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(235)))));
-            this.btnAddStep.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddStep.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnAddStep.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddStep.ForeColor = System.Drawing.Color.White;
             this.btnAddStep.HoverState.Parent = this.btnAddStep;
             this.btnAddStep.Location = new System.Drawing.Point(91, 525);
@@ -468,10 +475,10 @@
             this.txtStepDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStepDescription.DisabledState.Parent = this.txtStepDescription;
             this.txtStepDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStepDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtStepDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepDescription.FocusedState.Parent = this.txtStepDescription;
             this.txtStepDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStepDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtStepDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepDescription.HoverState.Parent = this.txtStepDescription;
             this.txtStepDescription.Location = new System.Drawing.Point(194, 332);
             this.txtStepDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -497,10 +504,10 @@
             this.txtStepImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStepImage.DisabledState.Parent = this.txtStepImage;
             this.txtStepImage.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStepImage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtStepImage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepImage.FocusedState.Parent = this.txtStepImage;
             this.txtStepImage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStepImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtStepImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepImage.HoverState.Parent = this.txtStepImage;
             this.txtStepImage.Location = new System.Drawing.Point(194, 461);
             this.txtStepImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -566,6 +573,8 @@
             // 
             this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.AutoScroll = true;
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.guna2Panel1.BorderRadius = 5;
             this.guna2Panel1.Controls.Add(this.label12);
             this.guna2Panel1.Controls.Add(this.txtStepOrder);
             this.guna2Panel1.Controls.Add(this.dgvIngredientDetail);
@@ -627,10 +636,10 @@
             this.txtStepOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStepOrder.DisabledState.Parent = this.txtStepOrder;
             this.txtStepOrder.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStepOrder.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtStepOrder.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepOrder.FocusedState.Parent = this.txtStepOrder;
             this.txtStepOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStepOrder.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtStepOrder.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepOrder.HoverState.Parent = this.txtStepOrder;
             this.txtStepOrder.Location = new System.Drawing.Point(194, 274);
             this.txtStepOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -680,6 +689,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.Controls.Add(this.guna2Panel1);
             this.Name = "UpdateRecipePanel";
             this.Size = new System.Drawing.Size(1326, 827);

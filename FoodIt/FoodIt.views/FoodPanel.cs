@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using FoodIt.dtos;
 using FoodIt.FoodIt.dtos;
-using System.IO;
-using Guna.UI2.WinForms;
 using FoodIt.FoodIt.views;
-using FoodIt.dtos;
+using Guna.UI2.WinForms;
+using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace FoodIt
 {

@@ -33,7 +33,7 @@ namespace FoodIt.FoodIt.views
             string imgage = recipe.Image.Substring(recipe.Image.LastIndexOf('/') + 1);
 
             // This will get the current WORKING directory (i.e. \bin\Debug)
-            string workingDirectory = Environment.CurrentDirectory;
+            string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             // This will get the current PROJECT directory
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;

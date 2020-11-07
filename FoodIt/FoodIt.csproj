@@ -210,12 +210,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\next.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\previous.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\article.png" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +237,8 @@
     <None Include="Properties\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\food.png" />
+    <None Include="Properties\logout.png" />
     <Content Include="resources\img\52767.jpg" />
     <Content Include="resources\img\52788.jpg" />
     <Content Include="resources\img\52820.jpg" />

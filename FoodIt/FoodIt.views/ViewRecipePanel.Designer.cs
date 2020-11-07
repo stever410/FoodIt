@@ -71,17 +71,16 @@
             // 
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.Controls.Add(this.imgRecipe, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ingrePanel, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 104);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 450F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(733, 450);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -90,9 +89,8 @@
             this.imgRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgRecipe.Location = new System.Drawing.Point(3, 3);
             this.imgRecipe.Name = "imgRecipe";
-            this.tableLayoutPanel1.SetRowSpan(this.imgRecipe, 2);
             this.imgRecipe.ShadowDecoration.Parent = this.imgRecipe;
-            this.imgRecipe.Size = new System.Drawing.Size(360, 444);
+            this.imgRecipe.Size = new System.Drawing.Size(213, 444);
             this.imgRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.imgRecipe.TabIndex = 0;
             this.imgRecipe.TabStop = false;
@@ -106,10 +104,9 @@
             this.ingrePanel.AutoSize = true;
             this.ingrePanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ingrePanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ingrePanel.Location = new System.Drawing.Point(369, 3);
+            this.ingrePanel.Location = new System.Drawing.Point(222, 3);
             this.ingrePanel.Name = "ingrePanel";
-            this.tableLayoutPanel1.SetRowSpan(this.ingrePanel, 2);
-            this.ingrePanel.Size = new System.Drawing.Size(361, 444);
+            this.ingrePanel.Size = new System.Drawing.Size(508, 444);
             this.ingrePanel.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -138,8 +135,10 @@
             // 
             // btnUpdateRecipe
             // 
+            this.btnUpdateRecipe.BorderRadius = 5;
             this.btnUpdateRecipe.CheckedState.Parent = this.btnUpdateRecipe;
             this.btnUpdateRecipe.CustomImages.Parent = this.btnUpdateRecipe;
+            this.btnUpdateRecipe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.btnUpdateRecipe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateRecipe.ForeColor = System.Drawing.Color.White;
             this.btnUpdateRecipe.HoverState.Parent = this.btnUpdateRecipe;
