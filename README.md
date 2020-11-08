@@ -10,5 +10,5 @@
 
 # FoodIT 5/11/2020
 ## To-do-task
-[] + Fix bugs that cause image not show correctly
-   + After update, app must show homepage or the detail of the food which was updated
+- [x] Fix bugs that cause image not show correctly
+- [x] After update, app must show homepage or the detail of the food which was updated
