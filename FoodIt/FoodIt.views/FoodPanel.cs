@@ -24,15 +24,13 @@ namespace FoodIt
             this.recipe = recipe;
             this.lblFood.Text = recipe.Title;
 
-            string imgage = recipe.Image.Substring(recipe.Image.LastIndexOf('/') + 1);
-
             // This will get the current WORKING directory (i.e. \bin\Debug)
             string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             // This will get the current PROJECT directory
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
 
-            String path =  projectDirectory + @"\resources\img\" + imgage;
+            String path =  projectDirectory + @"\resources\" + recipe.Image;
             SetImageURL(path);
 
             AttachClickEventHandler();

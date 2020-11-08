@@ -212,5 +212,30 @@ namespace FoodIt.FoodIt.daos
 
             return check;
         }
+
+        public bool DeleteRecipe(Recipe recipe)
+        {
+            bool check = false;
+            string sql = @"UPDATE dbo.Recipe SET status = 'deleted' WHERE recipe_id = @id";
+            try
+            {
+                using (conn = MyConnection.GetMyConnection())
+                {
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", recipe.Id);
+
+                        check = cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw se;
+            }
+
+            return check;
+        }
     }
 }

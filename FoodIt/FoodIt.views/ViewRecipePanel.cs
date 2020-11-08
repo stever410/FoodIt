@@ -30,20 +30,14 @@ namespace FoodIt.FoodIt.views
             this.recipe = recipe;
             this.lblTitle.Text = recipe.Title;
 
-            string imgage = recipe.Image.Substring(recipe.Image.LastIndexOf('/') + 1);
-
             // This will get the current WORKING directory (i.e. \bin\Debug)
             string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             // This will get the current PROJECT directory
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
 
-            String path = projectDirectory + @"\resources\img\" + imgage;
+            String path = projectDirectory + @"\resources\" + recipe.Image;
             this.imgRecipe.ImageLocation = path;
-
-            // generate a guna html label
-            Guna2HtmlLabel lblDetails = new Guna2HtmlLabel();
-            lblDetails.Font = new Font("Segoe UI", 16);
 
             // get all ingredients and render on view
             IngredientDAO dao = new IngredientDAO();
@@ -52,10 +46,7 @@ namespace FoodIt.FoodIt.views
 
             // get all steps and render on view
             this.recipe.RecipeSteps = RecipeStepDAO.GetRecipeStepsByRecipe(recipe);
-            lblDetails.Text += "<h3>Steps</h3><div style='width: 800px;text-align: justify;'>" + RenderSteps() + "</div>";
-            
-            // add this to panel
-            this.ingrePanel.Controls.Add(lblDetails);
+            lblDetails.Text += "<h3>Steps</h3><div style='width: 780px;'>" + RenderSteps() + "</div>";
 
             // add update button
             if (!this.User.Email.Equals(recipe.Email))
@@ -100,6 +91,34 @@ namespace FoodIt.FoodIt.views
 
             // render on view
             mainForm.RenderOnMainPanel(updateRecipePanel);
+        }
+
+        private void btnDeleteRecipe_Click(object sender, EventArgs e)
+        {
+            // ask if user really want to delete? if no return
+            if (MessageBox.Show("Are you sure to delete " + recipe.Title + "? (This action cannot be undo)", 
+                "Warning", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+
+            // yes then proceed delete
+            try
+            {
+                RecipeDAO dao = new RecipeDAO();
+                if(dao.DeleteRecipe(this.recipe))
+                    MessageBox.Show("Deleted " + recipe.Id + "-" + recipe.Title);
+
+                Guna2Panel mainPnl = this.Parent as Guna2Panel;
+                mainPnl.Controls.Clear();
+                FoodGridPanel foodGridPanel = new FoodGridPanel(mainPnl);
+                foodGridPanel.User = this.User;
+                mainPnl.Controls.Add(foodGridPanel);
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

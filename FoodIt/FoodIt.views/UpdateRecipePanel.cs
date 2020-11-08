@@ -88,7 +88,7 @@ namespace FoodIt.FoodIt.views
                     RecipeDAO recipeDAO = new RecipeDAO();
                     RecipeStepDAO recipeStepDAO = new RecipeStepDAO();
                     RecipeIngredientDAO recipeIngredientDAO = new RecipeIngredientDAO();
-                    
+
                     bool check = recipeDAO.UpdateRecipe(recipe);
 
                     recipeStepDAO.UpdateRecipeSteps(recipe.Id, recipeSteps);
@@ -120,26 +120,20 @@ namespace FoodIt.FoodIt.views
                         MessageBox.Show("Unable to save file " + exp.Message);
                     }
                     MessageBox.Show("Update recipe successfully!");
-                    ClearAll();
+
+                    //redirect to viewpanel
+                    RedirectViewPanel();
                 }
             }
         }
 
-        private void ClearAll()
+        private void RedirectViewPanel()
         {
-            txtIngredientAmount.Clear();
-            txtIngredient.Clear();
-            txtNote.Clear();
-            txtImage.Clear();
-            txtDescription.Clear();
-            txtTitle.Clear();
-            txtStepOrder.Clear();
-            txtStepDescription.Clear();
-            txtStepImage.Clear();
-            recipeIngredients.Clear();
-            recipeSteps.Clear();
-            LoadAllSteps();
-            LoadAllIngredients();
+            Guna2Panel mainPnl = this.Parent as Guna2Panel;
+            mainPnl.Controls.Clear();
+            ViewRecipePanel viewRecipePanel = new ViewRecipePanel(this.recipe, this.user);
+            viewRecipePanel.MainForm = mainPnl.Parent as MainForm;
+            mainPnl.Controls.Add(viewRecipePanel);
         }
 
         #region StepDetail
@@ -326,6 +320,7 @@ namespace FoodIt.FoodIt.views
                 {
                     errProvider.SetError(txtIngredientAmount, "");
                     RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
+                    ingredient.RecipeID = this.recipe.Id;
                     if (recipeIngredients.Contains(ingredient))
                     {
                         //Neu trong list da co ingredient roi thi chi duoc update hoac delete
@@ -360,6 +355,7 @@ namespace FoodIt.FoodIt.views
                 else
                 {
                     RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
+                    ingredient.RecipeID = this.recipe.Id;
                     for (int i = 0; i < recipeIngredients.Count; i++)
                     {
                         if (recipeIngredients[i].Equals(ingredient))
@@ -386,6 +382,8 @@ namespace FoodIt.FoodIt.views
             if (id > 0)
             {
                 RecipeIngredient ingredient = new RecipeIngredient(id, null, null);
+                ingredient.RecipeID = recipe.Id;
+
                 for (int i = 0; i < recipeIngredients.Count; i++)
                 {
                     if (recipeIngredients[i].Equals(ingredient))

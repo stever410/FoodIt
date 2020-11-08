@@ -54,12 +54,12 @@ namespace FoodIt
             this.pnlMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlMenu.Controls.Add(this.btnPost, 0, 1);
             this.pnlMenu.Controls.Add(this.btnHome, 0, 0);
-            this.pnlMenu.Location = new System.Drawing.Point(3, 119);
+            this.pnlMenu.Location = new System.Drawing.Point(1, 104);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.RowCount = 2;
             this.pnlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.pnlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.pnlMenu.Size = new System.Drawing.Size(213, 111);
+            this.pnlMenu.Size = new System.Drawing.Size(214, 116);
             this.pnlMenu.TabIndex = 5;
             // 
             // btnPost
@@ -75,11 +75,11 @@ namespace FoodIt
             this.btnPost.HoverState.Parent = this.btnPost;
             this.btnPost.Image = ((System.Drawing.Image)(resources.GetObject("btnPost.Image")));
             this.btnPost.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPost.Location = new System.Drawing.Point(0, 55);
+            this.btnPost.Location = new System.Drawing.Point(0, 58);
             this.btnPost.Margin = new System.Windows.Forms.Padding(0);
             this.btnPost.Name = "btnPost";
             this.btnPost.ShadowDecoration.Parent = this.btnPost;
-            this.btnPost.Size = new System.Drawing.Size(213, 56);
+            this.btnPost.Size = new System.Drawing.Size(214, 58);
             this.btnPost.TabIndex = 1;
             this.btnPost.Text = "Post article";
             this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
@@ -101,7 +101,7 @@ namespace FoodIt
             this.btnHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnHome.Name = "btnHome";
             this.btnHome.ShadowDecoration.Parent = this.btnHome;
-            this.btnHome.Size = new System.Drawing.Size(213, 55);
+            this.btnHome.Size = new System.Drawing.Size(214, 58);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -183,7 +183,7 @@ namespace FoodIt
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(72, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 30);
+            this.label1.Size = new System.Drawing.Size(102, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "FoodIt";
             // 
@@ -215,7 +215,7 @@ namespace FoodIt
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1580, 857);

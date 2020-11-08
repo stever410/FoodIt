@@ -33,7 +33,7 @@ namespace FoodIt.FoodIt.views
             // this function will always get the directory where your project is
             // whilst Environment.CurrentDicrectory isn't
             workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
         }
 
         private void AddRecipePanel_Load(object sender, EventArgs e)
