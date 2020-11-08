@@ -11,5 +11,5 @@
 - Add delete button
 - Fix not-so-minor-but-also-not-major bugs
 - To do list:
-[] To consider remove images in step recipe
-[] To improve view in add/update panel
+[ ] To consider remove images in step recipe
+[ ] To improve view in add/update panel
