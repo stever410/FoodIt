@@ -11,3 +11,8 @@
 + Recipe (insert, update)
 + Ingredient (insert, update)
 + RecipeIngredient (insert, update)
+# FoodIt database v2
+- Required for branch foodit-newui-v2
+- Add brand new 55 recipes
+- Remove redundant ingredients (ones we'll might never use)
+- Still with minor bugs
