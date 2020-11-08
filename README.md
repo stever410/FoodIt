@@ -7,6 +7,7 @@
   - Fix error with step image when it's null
 - Images in this version will be temporarily defect (promise to fix in v2)
 ## Update function v2 (fix old bugs and create new ones)
+> Require new database from Database-v2 to use (check database branch for more details)
 - Fix images view
 - Add delete button
 - Fix not-so-minor-but-also-not-major bugs
