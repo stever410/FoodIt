@@ -74,11 +74,12 @@
             // 
             this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.Controls.Add(this.imgRecipe, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ingrePanel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.imgRecipe, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ingrePanel, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 98);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -92,6 +93,7 @@
             this.imgRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgRecipe.Location = new System.Drawing.Point(3, 3);
             this.imgRecipe.Name = "imgRecipe";
+            this.imgRecipe.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.imgRecipe.ShadowDecoration.Parent = this.imgRecipe;
             this.imgRecipe.Size = new System.Drawing.Size(320, 442);
             this.imgRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -108,6 +110,7 @@
             this.ingrePanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ingrePanel.Location = new System.Drawing.Point(329, 3);
             this.ingrePanel.Name = "ingrePanel";
+            this.ingrePanel.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.ingrePanel.Size = new System.Drawing.Size(485, 442);
             this.ingrePanel.TabIndex = 2;
             // 
@@ -116,7 +119,7 @@
             this.lblDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetails.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetails.Location = new System.Drawing.Point(3, 3);
+            this.lblDetails.Location = new System.Drawing.Point(23, 3);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(225, 27);
             this.lblDetails.TabIndex = 0;

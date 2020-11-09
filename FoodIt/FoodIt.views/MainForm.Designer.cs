@@ -128,6 +128,7 @@ namespace FoodIt
             // 
             // pnlUser
             // 
+            this.pnlUser.BackColor = System.Drawing.Color.Transparent;
             this.pnlUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pnlUser.Controls.Add(this.btnLogout);
             this.pnlUser.Controls.Add(this.btnUser);
@@ -144,16 +145,16 @@ namespace FoodIt
             this.btnLogout.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnLogout.CheckedState.Parent = this.btnLogout;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(28, 28);
             this.btnLogout.HoverState.Parent = this.btnLogout;
             this.btnLogout.Image = global::FoodIt.Properties.Resources.logout;
             this.btnLogout.ImageRotate = 0F;
             this.btnLogout.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnLogout.Location = new System.Drawing.Point(178, 0);
+            this.btnLogout.Location = new System.Drawing.Point(159, 0);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.PressedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnLogout.PressedState.ImageSize = new System.Drawing.Size(28, 28);
             this.btnLogout.PressedState.Parent = this.btnLogout;
-            this.btnLogout.Size = new System.Drawing.Size(40, 47);
+            this.btnLogout.Size = new System.Drawing.Size(59, 47);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -166,6 +167,7 @@ namespace FoodIt
             this.btnUser.FillColor = System.Drawing.Color.Transparent;
             this.btnUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUser.ForeColor = System.Drawing.Color.White;
+            this.btnUser.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.btnUser.HoverState.Parent = this.btnUser;
             this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
             this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -183,7 +185,7 @@ namespace FoodIt
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(72, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 37);
+            this.label1.Size = new System.Drawing.Size(78, 30);
             this.label1.TabIndex = 6;
             this.label1.Text = "FoodIt";
             // 
@@ -215,7 +217,7 @@ namespace FoodIt
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1580, 857);
