@@ -70,14 +70,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodIt.daos\IngredientDAO.cs" />
+    <Compile Include="FoodIt.daos\RecipeDAO.cs" />
+    <Compile Include="FoodIt.daos\RecipeIngredientDAO.cs" />
+    <Compile Include="FoodIt.daos\RecipeStepDAO.cs" />
     <Compile Include="FoodIt.daos\UserDAO.cs" />
     <Compile Include="FoodIt.db\MyConnection.cs" />
+    <Compile Include="FoodIt.dtos\Ingredient.cs" />
+    <Compile Include="FoodIt.dtos\Recipe.cs" />
+    <Compile Include="FoodIt.dtos\RecipeIngredient.cs" />
+    <Compile Include="FoodIt.dtos\RecipeStep.cs" />
     <Compile Include="FoodIt.dtos\User.cs" />
+    <Compile Include="FoodIt.views\UpdateRecipePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodIt.views\UpdateRecipePanel.Designer.cs">
+      <DependentUpon>UpdateRecipePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodIt.views\AddRecipePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodIt.views\AddRecipePanel.Designer.cs">
+      <DependentUpon>AddRecipePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FoodIt.views\FoodGridPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FoodIt.views\FoodGridPanel.Designer.cs">
       <DependentUpon>FoodGridPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodIt.views\IngredientTag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodIt.views\IngredientTag.Designer.cs">
+      <DependentUpon>IngredientTag.cs</DependentUpon>
     </Compile>
     <Compile Include="FoodIt.views\MainForm.cs">
       <SubType>Form</SubType>
@@ -90,6 +116,12 @@
     </Compile>
     <Compile Include="FoodIt.views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodIt.views\ViewRecipePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodIt.views\ViewRecipePanel.Designer.cs">
+      <DependentUpon>ViewRecipePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,14 +137,26 @@
     <Compile Include="FoodIt.views\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FoodIt.views\UpdateRecipePanel.resx">
+      <DependentUpon>UpdateRecipePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodIt.views\AddRecipePanel.resx">
+      <DependentUpon>AddRecipePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FoodIt.views\FoodGridPanel.resx">
       <DependentUpon>FoodGridPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodIt.views\IngredientTag.resx">
+      <DependentUpon>IngredientTag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodIt.views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodIt.views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodIt.views\ViewRecipePanel.resx">
+      <DependentUpon>ViewRecipePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -166,15 +210,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\next.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\previous.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\user_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\article.png" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +221,48 @@
   <ItemGroup>
     <None Include="Properties\search.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\img\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food.png" />
+    <None Include="Properties\logout.png" />
+    <Content Include="resources\img\52767.jpg" />
+    <Content Include="resources\img\52788.jpg" />
+    <Content Include="resources\img\52820.jpg" />
+    <Content Include="resources\img\52828.jpg" />
+    <Content Include="resources\img\52829.jpg" />
+    <Content Include="resources\img\52854.jpg" />
+    <Content Include="resources\img\52857.jpg" />
+    <Content Include="resources\img\52858.jpg" />
+    <Content Include="resources\img\52873.jpg" />
+    <Content Include="resources\img\52880.jpg" />
+    <Content Include="resources\img\52889.jpg" />
+    <Content Include="resources\img\52890.jpg" />
+    <Content Include="resources\img\52895.jpg" />
+    <Content Include="resources\img\52907.jpg" />
+    <Content Include="resources\img\52921.jpg" />
+    <Content Include="resources\img\52933.jpg" />
+    <Content Include="resources\img\52951.jpg" />
+    <Content Include="resources\img\52954.jpg" />
+    <Content Include="resources\img\52963.jpg" />
+    <Content Include="resources\img\52964.jpg" />
+    <Content Include="resources\img\52990.jpg" />
+    <Content Include="resources\img\53008.jpg" />
+    <Content Include="resources\img\53011.jpg" />
+    <Content Include="resources\img\53015.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

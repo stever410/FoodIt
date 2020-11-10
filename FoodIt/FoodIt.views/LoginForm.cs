@@ -1,16 +1,9 @@
 ﻿using FoodIt.daos;
 using FoodIt.dtos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FoodIt
+namespace FoodIt.views
 {
     public partial class LoginForm : Form
     {
