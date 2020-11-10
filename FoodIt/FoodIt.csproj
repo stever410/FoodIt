@@ -81,6 +81,12 @@
     <Compile Include="FoodIt.dtos\RecipeIngredient.cs" />
     <Compile Include="FoodIt.dtos\RecipeStep.cs" />
     <Compile Include="FoodIt.dtos\User.cs" />
+    <Compile Include="FoodIt.views\UpdateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodIt.views\UpdateUserForm.Designer.cs">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FoodIt.views\UpdateRecipePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     <Compile Include="FoodIt.views\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FoodIt.views\UpdateUserForm.resx">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FoodIt.views\UpdateRecipePanel.resx">
       <DependentUpon>UpdateRecipePanel.cs</DependentUpon>
     </EmbeddedResource>

@@ -31,5 +31,12 @@ namespace FoodIt.dtos
             Image = image;
             Status = status;
         }
+
+        public User(string email, string username, string password)
+        {
+            this.email = email;
+            this.username = username;
+            this.password = password;
+        }
     }
 }

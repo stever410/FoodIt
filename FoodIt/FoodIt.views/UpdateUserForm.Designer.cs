@@ -1,6 +1,6 @@
 ﻿namespace FoodIt.views
 {
-    partial class RegisterForm
+    partial class UpdateUserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
+            Guna.UI2.AnimatorNS.Animation animation3 = new Guna.UI2.AnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateUserForm));
             this.pnlRegister = new Guna.UI2.WinForms.Guna2Panel();
             this.txtRetype = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,11 +38,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblLogin = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnRegister = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.transistion = new Guna.UI2.WinForms.Guna2Transition();
             this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlRegister.SuspendLayout();
@@ -58,11 +57,10 @@
             this.pnlRegister.Controls.Add(this.label7);
             this.pnlRegister.Controls.Add(this.txtUsername);
             this.pnlRegister.Controls.Add(this.label5);
-            this.pnlRegister.Controls.Add(this.lblLogin);
             this.pnlRegister.Controls.Add(this.pictureBox2);
             this.pnlRegister.Controls.Add(this.txtEmail);
             this.pnlRegister.Controls.Add(this.label6);
-            this.pnlRegister.Controls.Add(this.btnRegister);
+            this.pnlRegister.Controls.Add(this.btnUpdate);
             this.transistion.SetDecoration(this.pnlRegister, Guna.UI2.AnimatorNS.DecorationType.None);
             this.pnlRegister.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRegister.FillColor = System.Drawing.Color.White;
@@ -199,20 +197,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Username";
             // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
-            this.transistion.SetDecoration(this.lblLogin, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.lblLogin.Location = new System.Drawing.Point(188, 636);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(146, 20);
-            this.lblLogin.TabIndex = 5;
-            this.lblLogin.Text = "Return to login page";
-            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -248,6 +232,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "email@email.com";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.SelectedText = "";
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.Size = new System.Drawing.Size(317, 36);
@@ -267,48 +252,48 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Email";
             // 
-            // btnRegister
+            // btnUpdate
             // 
-            this.btnRegister.Animated = true;
-            this.btnRegister.AutoRoundedCorners = true;
-            this.btnRegister.BackColor = System.Drawing.Color.Transparent;
-            this.btnRegister.BorderRadius = 18;
-            this.btnRegister.CheckedState.Parent = this.btnRegister;
-            this.btnRegister.CustomImages.Parent = this.btnRegister;
-            this.transistion.SetDecoration(this.btnRegister, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnRegister.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.HoverState.Parent = this.btnRegister;
-            this.btnRegister.Location = new System.Drawing.Point(104, 573);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.PressedColor = System.Drawing.Color.Transparent;
-            this.btnRegister.ShadowDecoration.Parent = this.btnRegister;
-            this.btnRegister.Size = new System.Drawing.Size(317, 39);
-            this.btnRegister.TabIndex = 4;
-            this.btnRegister.Text = "Sign up";
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnUpdate.Animated = true;
+            this.btnUpdate.AutoRoundedCorners = true;
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.BorderRadius = 18;
+            this.btnUpdate.CheckedState.Parent = this.btnUpdate;
+            this.btnUpdate.CustomImages.Parent = this.btnUpdate;
+            this.transistion.SetDecoration(this.btnUpdate, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.HoverState.Parent = this.btnUpdate;
+            this.btnUpdate.Location = new System.Drawing.Point(104, 573);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.PressedColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.ShadowDecoration.Parent = this.btnUpdate;
+            this.btnUpdate.Size = new System.Drawing.Size(317, 39);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Update information";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // transistion
             // 
             this.transistion.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this.transistion.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.transistion.DefaultAnimation = animation1;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 1F;
+            this.transistion.DefaultAnimation = animation3;
             this.transistion.Interval = 20;
             this.transistion.TimeStep = 0.5F;
             // 
@@ -317,9 +302,9 @@
             this.errProvider.ContainerControl = this;
             this.errProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errProvider.Icon")));
             // 
-            // RegisterForm
+            // UpdateUserForm
             // 
-            this.AcceptButton = this.btnRegister;
+            this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
@@ -327,10 +312,10 @@
             this.Controls.Add(this.pnlRegister);
             this.transistion.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "RegisterForm";
+            this.Name = "UpdateUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FoodIt";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterForm_FormClosing);
+            this.Text = "Update user information";
+            this.Load += new System.EventHandler(this.UpdateUserForm_Load);
             this.pnlRegister.ResumeLayout(false);
             this.pnlRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -346,11 +331,10 @@
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2Button btnRegister;
+        private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2TextBox txtRetype;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Transition transistion;
