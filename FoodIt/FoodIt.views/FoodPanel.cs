@@ -1,13 +1,12 @@
 ﻿using FoodIt.dtos;
-using FoodIt.FoodIt.dtos;
-using FoodIt.FoodIt.views;
+using FoodIt.views;
 using Guna.UI2.WinForms;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace FoodIt
+namespace FoodIt.views
 {
     public partial class FoodPanel : UserControl
     {

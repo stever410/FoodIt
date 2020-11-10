@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using FoodIt.dtos;
-using FoodIt.FoodIt.daos;
-using FoodIt.FoodIt.dtos;
+using FoodIt.daos;
 using Guna.UI2.WinForms;
 
-namespace FoodIt.FoodIt.views
+namespace FoodIt.views
 {
     public partial class UpdateRecipePanel : UserControl
     {

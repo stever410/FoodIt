@@ -1,14 +1,13 @@
 ﻿using FoodIt.dtos;
-using FoodIt.FoodIt.daos;
-using FoodIt.FoodIt.dtos;
-using FoodIt.FoodIt.views;
+using FoodIt.daos;
+using FoodIt.views;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace FoodIt
+namespace FoodIt.views
 {
     public partial class FoodGridPanel : UserControl
     {

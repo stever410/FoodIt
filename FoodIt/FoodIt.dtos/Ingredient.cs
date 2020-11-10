@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodIt.FoodIt.dtos
+namespace FoodIt.dtos
 {
     public class Ingredient
     {

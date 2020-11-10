@@ -1,5 +1,5 @@
 ﻿using FoodIt.db;
-using FoodIt.FoodIt.dtos;
+using FoodIt.dtos;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodIt.FoodIt.daos
+namespace FoodIt.daos
 {
     public class RecipeIngredientDAO
     {

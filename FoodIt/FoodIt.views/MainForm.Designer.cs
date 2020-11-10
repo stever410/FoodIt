@@ -1,6 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 
-namespace FoodIt
+namespace FoodIt.views
 {
     partial class MainForm
     {

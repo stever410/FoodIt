@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FoodIt.FoodIt.views
+namespace FoodIt.views
 {
     public partial class IngredientTag : UserControl
     {

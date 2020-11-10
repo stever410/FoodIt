@@ -1,4 +1,4 @@
-﻿namespace FoodIt
+﻿namespace FoodIt.views
 {
     partial class FoodGridPanel
     {

@@ -1,4 +1,4 @@
-﻿namespace FoodIt.FoodIt.views
+﻿namespace FoodIt.views
 {
     partial class IngredientTag
     {

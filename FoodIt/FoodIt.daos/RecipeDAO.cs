@@ -1,5 +1,5 @@
 ﻿using FoodIt.db;
-using FoodIt.FoodIt.dtos;
+using FoodIt.dtos;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FoodIt.FoodIt.daos
+namespace FoodIt.daos
 {
     public class RecipeDAO
     {

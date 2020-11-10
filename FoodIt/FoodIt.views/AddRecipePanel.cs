@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using FoodIt.dtos;
-using FoodIt.FoodIt.daos;
-using FoodIt.FoodIt.dtos;
-using Guna.UI2.WinForms;
+using FoodIt.daos;
 
-namespace FoodIt.FoodIt.views
+namespace FoodIt.views
 {
     public partial class AddRecipePanel : UserControl
     {
@@ -171,7 +168,7 @@ namespace FoodIt.FoodIt.views
             txtStepImage.DataBindings.Add("Text", dtStep, "Image");
             dgvStepDetail.DataSource = dtStep;
         }
-        private void updateStepOrder()
+        private void UpdateStepOrder()
         {
             for (int i = 0; i < recipeSteps.Count; i++)
             {
@@ -249,7 +246,7 @@ namespace FoodIt.FoodIt.views
                     break;
                 }
             }
-            updateStepOrder();
+            UpdateStepOrder();
             LoadAllSteps();
         }
         #endregion

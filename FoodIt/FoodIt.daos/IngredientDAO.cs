@@ -1,11 +1,11 @@
 ﻿using FoodIt.db;
-using FoodIt.FoodIt.dtos;
+using FoodIt.dtos;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Net.Http.Headers;
 
-namespace FoodIt.FoodIt.daos
+namespace FoodIt.daos
 {
     public class IngredientDAO
     {
