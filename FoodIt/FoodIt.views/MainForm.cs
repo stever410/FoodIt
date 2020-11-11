@@ -23,10 +23,14 @@ namespace FoodIt.views
             buttons = new List<Guna2Button>();
         }
 
+        public void ChangeUserButtonText(String text)
+        {
+            btnUpdateUser.Text = text;
+        }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            this.btnUser.Text = User.Username;
+            this.btnUpdateUser.Text = User.Username;
             FoodGridPanel foodGridPanel = new FoodGridPanel(this.mainPnl);
             foodGridPanel.User = this.User;
             this.mainPnl.Controls.Add(foodGridPanel);
@@ -86,6 +90,12 @@ namespace FoodIt.views
             }
             // set the pressed button to pressed button color
             pressedButton.FillColor = PRESSED_BUTTON_COLOR;
+        }
+
+        private void btnUpdateUser_Click(object sender, EventArgs e)
+        {
+            UpdateUserForm updateUserForm = new UpdateUserForm(User, this);
+            updateUserForm.ShowDialog();
         }
     }
 }

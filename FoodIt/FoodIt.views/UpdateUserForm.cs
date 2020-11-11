@@ -7,26 +7,18 @@ using System.Windows.Forms;
 
 namespace FoodIt.views
 {
-    public partial class RegisterForm : Form
+    public partial class UpdateUserForm : Form
     {
         UserDAO userDAO = new UserDAO();
+        User user;
+        MainForm mainForm;
 
-        public RegisterForm()
+        public UpdateUserForm(User user, MainForm mainForm)
         {
             InitializeComponent();
             SetStyle(ControlStyles.Selectable, true);
-        }
-
-        private void lblLogin_Click(object sender, EventArgs e)
-        {
-            transistion.Hide(this);
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-        }
-
-        private void RegisterForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
+            this.user = user;
+            this.mainForm = mainForm;
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
@@ -85,29 +77,28 @@ namespace FoodIt.views
                 e.Cancel = false;
             }
         }
-        private void btnRegister_Click(object sender, EventArgs e)
+
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             if (this.ValidateChildren())
             {
-                if (userDAO.FindUserByEmail(email) != null)
-                {
-                    MessageBox.Show("That email is exist!");
-                    this.txtEmail.Focus();
-                }
-                else
-                {
-                    User user = new User(email, username, password, User.MEMBER, "", User.DEFAULT_STATUS);
-                    userDAO.AddUser(user);
-                    MessageBox.Show("Sign up successfully!");
-                    txtEmail.Text = string.Empty;
-                    txtUsername.Text = string.Empty;
-                    txtPassword.Text = string.Empty;
-                    txtRetype.Text = string.Empty;
-                }
+                User user = new User(email, username, password);
+                userDAO.UpdateUser(user);
+                MessageBox.Show($"Update {email} successfully!");
+                mainForm.User.Username = username;
+                mainForm.ChangeUserButtonText(username);
+                // if update user information success, drop update form
+                this.Dispose();
             }
+        }
+
+        private void UpdateUserForm_Load(object sender, EventArgs e)
+        {
+            txtEmail.Text = user.Email;
+            txtUsername.Text = user.Username;
         }
     }
 }

@@ -37,7 +37,7 @@ namespace FoodIt.views
             this.sidePnl = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlUser = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btnUser = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdateUser = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.mainPnl = new Guna.UI2.WinForms.Guna2Panel();
@@ -131,7 +131,7 @@ namespace FoodIt.views
             this.pnlUser.BackColor = System.Drawing.Color.Transparent;
             this.pnlUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pnlUser.Controls.Add(this.btnLogout);
-            this.pnlUser.Controls.Add(this.btnUser);
+            this.pnlUser.Controls.Add(this.btnUpdateUser);
             this.pnlUser.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlUser.Location = new System.Drawing.Point(0, 810);
             this.pnlUser.Name = "pnlUser";
@@ -158,25 +158,26 @@ namespace FoodIt.views
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnUser
+            // btnUpdateUser
             // 
-            this.btnUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnUser.CheckedState.Parent = this.btnUser;
-            this.btnUser.CustomImages.Parent = this.btnUser;
-            this.btnUser.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnUser.FillColor = System.Drawing.Color.Transparent;
-            this.btnUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUser.ForeColor = System.Drawing.Color.White;
-            this.btnUser.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.btnUser.HoverState.Parent = this.btnUser;
-            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
-            this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUser.Location = new System.Drawing.Point(0, 0);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.ShadowDecoration.Parent = this.btnUser;
-            this.btnUser.Size = new System.Drawing.Size(185, 47);
-            this.btnUser.TabIndex = 3;
-            this.btnUser.Text = "User";
+            this.btnUpdateUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdateUser.CheckedState.Parent = this.btnUpdateUser;
+            this.btnUpdateUser.CustomImages.Parent = this.btnUpdateUser;
+            this.btnUpdateUser.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnUpdateUser.FillColor = System.Drawing.Color.Transparent;
+            this.btnUpdateUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateUser.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateUser.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.btnUpdateUser.HoverState.Parent = this.btnUpdateUser;
+            this.btnUpdateUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateUser.Image")));
+            this.btnUpdateUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUpdateUser.Location = new System.Drawing.Point(0, 0);
+            this.btnUpdateUser.Name = "btnUpdateUser";
+            this.btnUpdateUser.ShadowDecoration.Parent = this.btnUpdateUser;
+            this.btnUpdateUser.Size = new System.Drawing.Size(185, 47);
+            this.btnUpdateUser.TabIndex = 3;
+            this.btnUpdateUser.Text = "User";
+            this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
             // 
             // label1
             // 
@@ -246,7 +247,7 @@ namespace FoodIt.views
 
         #endregion
         private Guna.UI2.WinForms.Guna2Button btnHome;
-        private Guna.UI2.WinForms.Guna2Button btnUser;
+        private Guna.UI2.WinForms.Guna2Button btnUpdateUser;
         private System.Windows.Forms.TableLayoutPanel pnlMenu;
         private Guna.UI2.WinForms.Guna2Panel sidePnl;
         private System.Windows.Forms.Label label1;

@@ -151,7 +151,7 @@ namespace FoodIt.daos
             }
             catch (SqlException se)
             {
-                throw new Exception(se.Message);
+                throw se;
             }
             return list;
         }
@@ -236,6 +236,29 @@ namespace FoodIt.daos
             }
 
             return check;
+        }
+
+        public bool UpdateImagePath(int recipeID, string imageName)
+        {
+            string imagePath = @"img\" + recipeID + @"\" + imageName;
+            string sql = "UPDATE dbo.Recipe SET image = @imagePath WHERE recipe_id = @id";
+            try
+            {
+                using(conn = MyConnection.GetMyConnection())
+                {
+                    conn.Open();
+                    using(cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", recipeID);
+                        cmd.Parameters.AddWithValue("@imagePath", imagePath);
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw se;
+            }
         }
     }
 }
