@@ -213,6 +213,51 @@ namespace FoodIt.daos
             return check;
         }
 
+        public List<Recipe> GetAllRecipesByUser(string email)
+        {
+            List<Recipe> list = null;
+            string sql = "SELECT recipe_id, title, date, image, email, description " +
+                "FROM Recipe WHERE status NOT LIKE 'deleted' AND email = @email";
+            try
+            {
+                using (conn = MyConnection.GetMyConnection())
+                {
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@email", email);
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            Recipe recipe;
+                            while (reader.Read())
+                            {
+                                int id = (int)reader["recipe_id"];
+                                string title = reader["title"] as string;
+                                DateTime date = reader.GetDateTime(2);
+                                string image = reader["image"] as string;
+                                string desc = reader["description"] as string;
+
+                                recipe = new Recipe(id, title, date, image);
+                                recipe.Email = email;
+                                recipe.Description = desc;
+
+                                if (list == null)
+                                {
+                                    list = new List<Recipe>();
+                                }
+                                list.Add(recipe);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException se)
+            {
+                throw se;
+            }
+            return list;
+        }
+
         public bool DeleteRecipe(Recipe recipe)
         {
             bool check = false;

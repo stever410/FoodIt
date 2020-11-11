@@ -41,6 +41,7 @@ namespace FoodIt.views
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.mainPnl = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnViewMyRecipe = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMenu.SuspendLayout();
             this.sidePnl.SuspendLayout();
             this.pnlUser.SuspendLayout();
@@ -52,14 +53,16 @@ namespace FoodIt.views
             this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenu.ColumnCount = 1;
             this.pnlMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlMenu.Controls.Add(this.btnViewMyRecipe, 0, 2);
             this.pnlMenu.Controls.Add(this.btnPost, 0, 1);
             this.pnlMenu.Controls.Add(this.btnHome, 0, 0);
             this.pnlMenu.Location = new System.Drawing.Point(1, 104);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.RowCount = 2;
+            this.pnlMenu.RowCount = 3;
             this.pnlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.pnlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.pnlMenu.Size = new System.Drawing.Size(214, 116);
+            this.pnlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.pnlMenu.Size = new System.Drawing.Size(214, 240);
             this.pnlMenu.TabIndex = 5;
             // 
             // btnPost
@@ -69,17 +72,17 @@ namespace FoodIt.views
             this.btnPost.CustomImages.Parent = this.btnPost;
             this.btnPost.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPost.FillColor = System.Drawing.Color.Transparent;
-            this.btnPost.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPost.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.btnPost.ForeColor = System.Drawing.Color.White;
             this.btnPost.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.btnPost.HoverState.Parent = this.btnPost;
             this.btnPost.Image = ((System.Drawing.Image)(resources.GetObject("btnPost.Image")));
             this.btnPost.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPost.Location = new System.Drawing.Point(0, 58);
+            this.btnPost.Location = new System.Drawing.Point(0, 79);
             this.btnPost.Margin = new System.Windows.Forms.Padding(0);
             this.btnPost.Name = "btnPost";
             this.btnPost.ShadowDecoration.Parent = this.btnPost;
-            this.btnPost.Size = new System.Drawing.Size(214, 58);
+            this.btnPost.Size = new System.Drawing.Size(214, 79);
             this.btnPost.TabIndex = 1;
             this.btnPost.Text = "Post article";
             this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
@@ -101,7 +104,7 @@ namespace FoodIt.views
             this.btnHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnHome.Name = "btnHome";
             this.btnHome.ShadowDecoration.Parent = this.btnHome;
-            this.btnHome.Size = new System.Drawing.Size(214, 58);
+            this.btnHome.Size = new System.Drawing.Size(214, 79);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -216,6 +219,28 @@ namespace FoodIt.views
             this.mainPnl.Size = new System.Drawing.Size(1362, 857);
             this.mainPnl.TabIndex = 1;
             // 
+            // btnViewMyRecipe
+            // 
+            this.btnViewMyRecipe.BackColor = System.Drawing.Color.Transparent;
+            this.btnViewMyRecipe.CheckedState.Parent = this.btnViewMyRecipe;
+            this.btnViewMyRecipe.CustomImages.Parent = this.btnViewMyRecipe;
+            this.btnViewMyRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnViewMyRecipe.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewMyRecipe.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.btnViewMyRecipe.ForeColor = System.Drawing.Color.White;
+            this.btnViewMyRecipe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.btnViewMyRecipe.HoverState.Parent = this.btnViewMyRecipe;
+            this.btnViewMyRecipe.Image = ((System.Drawing.Image)(resources.GetObject("btnViewMyRecipe.Image")));
+            this.btnViewMyRecipe.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnViewMyRecipe.Location = new System.Drawing.Point(0, 158);
+            this.btnViewMyRecipe.Margin = new System.Windows.Forms.Padding(0);
+            this.btnViewMyRecipe.Name = "btnViewMyRecipe";
+            this.btnViewMyRecipe.ShadowDecoration.Parent = this.btnViewMyRecipe;
+            this.btnViewMyRecipe.Size = new System.Drawing.Size(214, 82);
+            this.btnViewMyRecipe.TabIndex = 2;
+            this.btnViewMyRecipe.Text = "View My Recipes";
+            this.btnViewMyRecipe.Click += new System.EventHandler(this.btnViewMyRecipe_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +281,6 @@ namespace FoodIt.views
         private Guna2Panel pnlUser;
         private Guna2ImageButton btnLogout;
         private Guna2Button btnPost;
+        private Guna2Button btnViewMyRecipe;
     }
 }

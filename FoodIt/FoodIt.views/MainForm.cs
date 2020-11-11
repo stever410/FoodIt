@@ -4,6 +4,7 @@ using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FoodIt.views
@@ -81,7 +82,7 @@ namespace FoodIt.views
         }
 
         // this function will change button color based on which button user pressed
-        private void ChangeButtonColor(Guna2Button pressedButton, List<Guna2Button> listButtons)
+        public void ChangeButtonColor(Guna2Button pressedButton, List<Guna2Button> listButtons)
         {
             // set all button to default color
             foreach (Guna2Button button in listButtons)
@@ -96,6 +97,45 @@ namespace FoodIt.views
         {
             UpdateUserForm updateUserForm = new UpdateUserForm(User, this);
             updateUserForm.ShowDialog();
+        }
+
+        private void btnViewMyRecipe_Click(object sender, EventArgs e)
+        {
+            FoodGridPanel foodGridPanel = null;
+            // get foodgridpanel in mainPnl
+            foreach (Control control in this.mainPnl.Controls)
+            {
+                if (control is FoodGridPanel)
+                {
+                    foodGridPanel = control as FoodGridPanel;
+                    break;
+                }
+            }
+            ChangeButtonColor(btnViewMyRecipe, buttons);
+
+            // in case foodgrid is not included in mainpnl right now
+            if (foodGridPanel == null)
+            {
+                foodGridPanel = new FoodGridPanel(this.mainPnl);
+                foodGridPanel.User = this.User;
+            }
+
+            // remove load event when add 
+            foodGridPanel.Load -= new System.EventHandler(foodGridPanel.FoodGridPanel_Load);
+
+            // update view
+            this.mainPnl.Controls.Clear();
+            this.mainPnl.Controls.Add(foodGridPanel);
+
+            // always set paging back to first page to avoid error
+            foodGridPanel.PageNo = 1;
+            // set list recipe to user's
+            foodGridPanel.FoodGridPanel_LoadByUser();
+        }
+
+        public void SetHomeButton()
+        {
+            ChangeButtonColor(this.btnHome, buttons);
         }
     }
 }

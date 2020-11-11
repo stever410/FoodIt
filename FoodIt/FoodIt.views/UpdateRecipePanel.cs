@@ -33,7 +33,7 @@ namespace FoodIt.views
             this.user = user;
             this.recipe = recipe;
             workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
         }
 
         private void UpdateRecipePanel_Load(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace FoodIt.views
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string title = txtTitle.Text;
-            string image = txtImage.Text;
+            string image = @"img\" + recipe.Id + @"\" + txtImage.Text;
             string description = txtDescription.Text;
             //validate
             if (string.IsNullOrWhiteSpace(title))

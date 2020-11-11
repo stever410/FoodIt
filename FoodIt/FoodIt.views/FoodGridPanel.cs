@@ -23,6 +23,7 @@ namespace FoodIt.views
         private User user;
 
         public User User { get => user; set => user = value; }
+        public int PageNo { get => pageNo; set => pageNo = value; }
 
         public FoodGridPanel(Guna2Panel mainPnl)
         {
@@ -127,6 +128,7 @@ namespace FoodIt.views
                 {
                     MessageBox.Show("No result found!");
                 }
+                AfterSearchHandler();
             }
         }
 
@@ -189,13 +191,14 @@ namespace FoodIt.views
                 {
                     MessageBox.Show("No recipes found!");
                 }
+                AfterSearchHandler();
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void FoodGridPanel_Load(object sender, EventArgs e)
+        public void FoodGridPanel_Load(object sender, EventArgs e)
         {
             RecipeDAO dao = new RecipeDAO();
             try 
@@ -212,6 +215,31 @@ namespace FoodIt.views
             { 
                 MessageBox.Show(ex.Message); 
             }
+        }
+
+        public void FoodGridPanel_LoadByUser()
+        {
+            RecipeDAO dao = new RecipeDAO();
+            try
+            {
+                recipes = dao.GetAllRecipesByUser(this.user.Email);
+                // paging steps
+                totalRecords = recipes.Count;
+                totalPages = (int)Math.Ceiling(totalRecords * 1.0 / PAGE_SIZE);
+                lblPaging.Text = pageNo + "/" + totalPages;
+                LoadFoodGrid();
+                LoadIngredientsAutoComplete();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void AfterSearchHandler()
+        {
+            MainForm mainForm = this.mainPnl.Parent as MainForm;
+            mainForm.SetHomeButton();
         }
     }
 }
