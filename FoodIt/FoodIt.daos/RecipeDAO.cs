@@ -151,7 +151,7 @@ namespace FoodIt.daos
             }
             catch (SqlException se)
             {
-                throw new Exception(se.Message);
+                throw se;
             }
             return list;
         }

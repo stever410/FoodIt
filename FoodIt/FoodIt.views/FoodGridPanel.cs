@@ -117,6 +117,8 @@ namespace FoodIt.views
                 recipes = dao.GetRecipesBySearch(txtSearch.Text);
                 if(recipes.Count > 0)
                 {
+                    // update paging
+                    pageNo = 1;
                     totalRecords = recipes.Count;
                     totalPages = (int)Math.Ceiling(totalRecords * 1.0 / PAGE_SIZE);
                     lblPaging.Text = pageNo + "/" + totalPages;
@@ -177,6 +179,8 @@ namespace FoodIt.views
                 if (result.Count > 0)
                 {
                     recipes = result;
+                    // update paging
+                    pageNo = 1;
                     totalRecords = recipes.Count;
                     totalPages = (int)Math.Ceiling(totalRecords * 1.0 / PAGE_SIZE);
                     lblPaging.Text = pageNo + "/" + totalPages;
