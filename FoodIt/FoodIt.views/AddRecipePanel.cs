@@ -72,6 +72,7 @@ namespace FoodIt.views
                     RecipeIngredientDAO recipeIngredientDAO = new RecipeIngredientDAO();
                     
                     int recipeID = recipeDAO.AddRecipe(recipe);
+                    recipeDAO.UpdateImagePath(recipeID, image);
 
                     recipeStepDAO.AddRecipeSteps(recipeID, recipeSteps);
                     recipeIngredientDAO.AddRecipeIngredients(recipeID, recipeIngredients);
