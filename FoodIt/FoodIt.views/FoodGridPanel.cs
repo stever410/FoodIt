@@ -217,12 +217,19 @@ namespace FoodIt.views
             }
         }
 
-        public void FoodGridPanel_LoadByUser()
+        public bool FoodGridPanel_LoadByUser()
         {
+            bool check = true;
             RecipeDAO dao = new RecipeDAO();
             try
             {
                 recipes = dao.GetAllRecipesByUser(this.user.Email);
+                if (recipes == null)
+                {
+                    MessageBox.Show("You haven't made any recipe yet!");
+                    recipes = dao.GetAllRecipes();
+                    check = false;
+                }
                 // paging steps
                 totalRecords = recipes.Count;
                 totalPages = (int)Math.Ceiling(totalRecords * 1.0 / PAGE_SIZE);
@@ -234,6 +241,8 @@ namespace FoodIt.views
             {
                 MessageBox.Show(ex.Message);
             }
+
+            return check;
         }
 
         public void AfterSearchHandler()

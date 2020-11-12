@@ -38,7 +38,7 @@ namespace FoodIt.views
             //get all button in pnlMenu
             foreach (var component in pnlMenu.Controls)
             {
-                if(component is Guna2Button)
+                if (component is Guna2Button)
                 {
                     buttons.Add((Guna2Button)component);
                 }
@@ -101,24 +101,8 @@ namespace FoodIt.views
 
         private void btnViewMyRecipe_Click(object sender, EventArgs e)
         {
-            FoodGridPanel foodGridPanel = null;
-            // get foodgridpanel in mainPnl
-            foreach (Control control in this.mainPnl.Controls)
-            {
-                if (control is FoodGridPanel)
-                {
-                    foodGridPanel = control as FoodGridPanel;
-                    break;
-                }
-            }
-            ChangeButtonColor(btnViewMyRecipe, buttons);
-
-            // in case foodgrid is not included in mainpnl right now
-            if (foodGridPanel == null)
-            {
-                foodGridPanel = new FoodGridPanel(this.mainPnl);
-                foodGridPanel.User = this.User;
-            }
+            FoodGridPanel foodGridPanel = new FoodGridPanel(this.mainPnl);
+            foodGridPanel.User = this.User;
 
             // remove load event when add 
             foodGridPanel.Load -= new System.EventHandler(foodGridPanel.FoodGridPanel_Load);
@@ -130,7 +114,10 @@ namespace FoodIt.views
             // always set paging back to first page to avoid error
             foodGridPanel.PageNo = 1;
             // set list recipe to user's
-            foodGridPanel.FoodGridPanel_LoadByUser();
+            if (foodGridPanel.FoodGridPanel_LoadByUser())
+                ChangeButtonColor(btnViewMyRecipe, buttons);
+            else
+                ChangeButtonColor(btnHome, buttons);
         }
 
         public void SetHomeButton()

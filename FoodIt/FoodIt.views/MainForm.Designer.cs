@@ -32,16 +32,16 @@ namespace FoodIt.views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlMenu = new System.Windows.Forms.TableLayoutPanel();
-            this.btnPost = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.sidePnl = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlUser = new Guna.UI2.WinForms.Guna2Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mainPnl = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnUpdateUser = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.mainPnl = new Guna.UI2.WinForms.Guna2Panel();
             this.btnViewMyRecipe = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPost = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlMenu.SuspendLayout();
             this.sidePnl.SuspendLayout();
             this.pnlUser.SuspendLayout();
@@ -64,50 +64,6 @@ namespace FoodIt.views
             this.pnlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.pnlMenu.Size = new System.Drawing.Size(214, 240);
             this.pnlMenu.TabIndex = 5;
-            // 
-            // btnPost
-            // 
-            this.btnPost.BackColor = System.Drawing.Color.Transparent;
-            this.btnPost.CheckedState.Parent = this.btnPost;
-            this.btnPost.CustomImages.Parent = this.btnPost;
-            this.btnPost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPost.FillColor = System.Drawing.Color.Transparent;
-            this.btnPost.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.btnPost.ForeColor = System.Drawing.Color.White;
-            this.btnPost.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.btnPost.HoverState.Parent = this.btnPost;
-            this.btnPost.Image = ((System.Drawing.Image)(resources.GetObject("btnPost.Image")));
-            this.btnPost.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPost.Location = new System.Drawing.Point(0, 79);
-            this.btnPost.Margin = new System.Windows.Forms.Padding(0);
-            this.btnPost.Name = "btnPost";
-            this.btnPost.ShadowDecoration.Parent = this.btnPost;
-            this.btnPost.Size = new System.Drawing.Size(214, 79);
-            this.btnPost.TabIndex = 1;
-            this.btnPost.Text = "Post article";
-            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.CheckedState.Parent = this.btnHome;
-            this.btnHome.CustomImages.Parent = this.btnHome;
-            this.btnHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.btnHome.HoverState.Parent = this.btnHome;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHome.Location = new System.Drawing.Point(0, 0);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(0);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.ShadowDecoration.Parent = this.btnHome;
-            this.btnHome.Size = new System.Drawing.Size(214, 79);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Home";
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // sidePnl
             // 
@@ -142,6 +98,31 @@ namespace FoodIt.views
             this.pnlUser.Size = new System.Drawing.Size(218, 47);
             this.pnlUser.TabIndex = 7;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(72, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 30);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "FoodIt";
+            // 
+            // mainPnl
+            // 
+            this.mainPnl.AutoScroll = true;
+            this.mainPnl.AutoSize = true;
+            this.mainPnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.mainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPnl.Location = new System.Drawing.Point(218, 0);
+            this.mainPnl.Name = "mainPnl";
+            this.mainPnl.ShadowDecoration.Depth = 100;
+            this.mainPnl.ShadowDecoration.Enabled = true;
+            this.mainPnl.ShadowDecoration.Parent = this.mainPnl;
+            this.mainPnl.Size = new System.Drawing.Size(1362, 857);
+            this.mainPnl.TabIndex = 1;
+            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.Transparent;
@@ -172,7 +153,7 @@ namespace FoodIt.views
             this.btnUpdateUser.ForeColor = System.Drawing.Color.White;
             this.btnUpdateUser.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.btnUpdateUser.HoverState.Parent = this.btnUpdateUser;
-            this.btnUpdateUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateUser.Image")));
+            this.btnUpdateUser.Image = global::FoodIt.Properties.Resources.user;
             this.btnUpdateUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUpdateUser.Location = new System.Drawing.Point(0, 0);
             this.btnUpdateUser.Name = "btnUpdateUser";
@@ -181,43 +162,6 @@ namespace FoodIt.views
             this.btnUpdateUser.TabIndex = 3;
             this.btnUpdateUser.Text = "User";
             this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(72, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 30);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "FoodIt";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::FoodIt.Properties.Resources.food;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(86, 3);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(52, 58);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 4;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // mainPnl
-            // 
-            this.mainPnl.AutoScroll = true;
-            this.mainPnl.AutoSize = true;
-            this.mainPnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.mainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPnl.Location = new System.Drawing.Point(218, 0);
-            this.mainPnl.Name = "mainPnl";
-            this.mainPnl.ShadowDecoration.Depth = 100;
-            this.mainPnl.ShadowDecoration.Enabled = true;
-            this.mainPnl.ShadowDecoration.Parent = this.mainPnl;
-            this.mainPnl.Size = new System.Drawing.Size(1362, 857);
-            this.mainPnl.TabIndex = 1;
             // 
             // btnViewMyRecipe
             // 
@@ -230,16 +174,72 @@ namespace FoodIt.views
             this.btnViewMyRecipe.ForeColor = System.Drawing.Color.White;
             this.btnViewMyRecipe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.btnViewMyRecipe.HoverState.Parent = this.btnViewMyRecipe;
-            this.btnViewMyRecipe.Image = ((System.Drawing.Image)(resources.GetObject("btnViewMyRecipe.Image")));
+            this.btnViewMyRecipe.Image = global::FoodIt.Properties.Resources.article;
             this.btnViewMyRecipe.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnViewMyRecipe.Location = new System.Drawing.Point(0, 158);
+            this.btnViewMyRecipe.Location = new System.Drawing.Point(0, 160);
             this.btnViewMyRecipe.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewMyRecipe.Name = "btnViewMyRecipe";
             this.btnViewMyRecipe.ShadowDecoration.Parent = this.btnViewMyRecipe;
-            this.btnViewMyRecipe.Size = new System.Drawing.Size(214, 82);
+            this.btnViewMyRecipe.Size = new System.Drawing.Size(214, 80);
             this.btnViewMyRecipe.TabIndex = 2;
-            this.btnViewMyRecipe.Text = "View My Recipes";
+            this.btnViewMyRecipe.Text = "My recipes";
             this.btnViewMyRecipe.Click += new System.EventHandler(this.btnViewMyRecipe_Click);
+            // 
+            // btnPost
+            // 
+            this.btnPost.BackColor = System.Drawing.Color.Transparent;
+            this.btnPost.CheckedState.Parent = this.btnPost;
+            this.btnPost.CustomImages.Parent = this.btnPost;
+            this.btnPost.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPost.FillColor = System.Drawing.Color.Transparent;
+            this.btnPost.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.btnPost.ForeColor = System.Drawing.Color.White;
+            this.btnPost.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.btnPost.HoverState.Parent = this.btnPost;
+            this.btnPost.Image = global::FoodIt.Properties.Resources.add_recipe;
+            this.btnPost.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPost.Location = new System.Drawing.Point(0, 80);
+            this.btnPost.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPost.Name = "btnPost";
+            this.btnPost.ShadowDecoration.Parent = this.btnPost;
+            this.btnPost.Size = new System.Drawing.Size(214, 80);
+            this.btnPost.TabIndex = 1;
+            this.btnPost.Text = "Post article";
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.CheckedState.Parent = this.btnHome;
+            this.btnHome.CustomImages.Parent = this.btnHome;
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.btnHome.HoverState.Parent = this.btnHome;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnHome.Location = new System.Drawing.Point(0, 0);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.ShadowDecoration.Parent = this.btnHome;
+            this.btnHome.Size = new System.Drawing.Size(214, 80);
+            this.btnHome.TabIndex = 0;
+            this.btnHome.Text = "Home";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::FoodIt.Properties.Resources.food;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(86, 3);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(52, 58);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 4;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // MainForm
             // 

@@ -248,6 +248,7 @@
   <ItemGroup>
     <None Include="Properties\food.png" />
     <None Include="Properties\logout.png" />
+    <None Include="Properties\add-recipe.png" />
     <Content Include="resources\img\52767.jpg" />
     <Content Include="resources\img\52788.jpg" />
     <Content Include="resources\img\52820.jpg" />
