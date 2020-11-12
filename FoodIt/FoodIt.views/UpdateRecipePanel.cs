@@ -66,9 +66,28 @@ namespace FoodIt.views
             string image = @"img\" + recipe.Id + @"\" + txtImage.Text;
             string description = txtDescription.Text;
             //validate
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                MessageBox.Show("Maybe you forgot the name (title) of the recipe :v");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(image))
+            {
+                MessageBox.Show("Recipe with image will be more attractive: v");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                MessageBox.Show("Maybe you forgot describe something about your recipe :v");
+                return;
+            }
+
             if (recipeIngredients.Count == 0 || recipeSteps.Count == 0)
             {
                 MessageBox.Show("Please add at least 1 ingredient and 1 step.");
+                return;
             }
             else
             {

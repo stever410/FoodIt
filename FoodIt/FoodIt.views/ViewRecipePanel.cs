@@ -107,6 +107,7 @@ namespace FoodIt.views
                 FoodGridPanel foodGridPanel = new FoodGridPanel(mainPnl);
                 foodGridPanel.User = this.User;
                 mainPnl.Controls.Add(foodGridPanel);
+                mainForm.SetHomeButton();
             } 
             catch (Exception ex)
             {
