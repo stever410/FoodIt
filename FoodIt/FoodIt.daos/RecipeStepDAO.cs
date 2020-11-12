@@ -12,35 +12,33 @@ namespace FoodIt.daos
 {
     public class RecipeStepDAO
     {
-        private static SqlConnection cnn;
-        private static SqlCommand cmd;
-        private static SqlDataReader reader;
+        private SqlConnection cnn;
+        private SqlCommand cmd;
+        private SqlDataReader reader;
 
-        public static List<RecipeStep> GetRecipeStepsByRecipe(Recipe recipe)
+        public List<RecipeStep> GetRecipeStepsByRecipe(Recipe recipe)
         {
             List<RecipeStep> steps = null;
             try
             {
-                string sql = @"SELECT step_id, [description], image 
+                string sql = @"SELECT step_id, [description]
                                 FROM dbo.RecipeStep
                                 WHERE recipe_id = @id";
 
-                using(cnn = MyConnection.GetMyConnection())
+                using (cnn = MyConnection.GetMyConnection())
                 {
                     cnn.Open();
-                    using(cmd = new SqlCommand(sql, cnn))
+                    using (cmd = new SqlCommand(sql, cnn))
                     {
                         cmd.Parameters.AddWithValue("@id", recipe.Id);
-                        using(reader = cmd.ExecuteReader())
+                        using (reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 int id = (int)reader["step_id"];
                                 string desc = reader["description"] as string;
-                                string image = reader["image"] as string;
-                                RecipeStep step = new RecipeStep(id, desc, image);
+                                RecipeStep step = new RecipeStep(id, desc);
                                 step.RecipeID = recipe.Id;
-
                                 if (steps == null)
                                 {
                                     steps = new List<RecipeStep>();
@@ -62,7 +60,7 @@ namespace FoodIt.daos
         {
             try
             {
-                string sql = "Insert RecipeStep values(@recipe_id, @description, @image)";
+                string sql = "Insert RecipeStep values(@recipe_id, @description)";
                 using (cnn = MyConnection.GetMyConnection())
                 {
                     cnn.Open();
@@ -75,7 +73,6 @@ namespace FoodIt.daos
                             cmd.Parameters.Clear();
                             cmd.Parameters.AddWithValue("@recipe_id", recipeID);
                             cmd.Parameters.AddWithValue("@description", step.Description);
-                            cmd.Parameters.AddWithValue("@image", step.Image);
                             cmd.ExecuteNonQuery();
                         }
                         transaction.Commit();
@@ -127,7 +124,6 @@ namespace FoodIt.daos
             {
                 throw se;
             }
-
             return check;
         }
 

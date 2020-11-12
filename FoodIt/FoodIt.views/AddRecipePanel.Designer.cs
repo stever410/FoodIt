@@ -51,9 +51,7 @@
             this.btnDeleteStep = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdateStep = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddStep = new Guna.UI2.WinForms.Guna2Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtStepDescription = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtStepImage = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,9 +60,7 @@
             this.txtStepOrder = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvIngredientDetail = new System.Windows.Forms.DataGridView();
             this.dgvStepDetail = new System.Windows.Forms.DataGridView();
-            this.btnStepImage = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnRecipeImage = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.stepFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.bsStep = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -95,6 +91,7 @@
             this.txtNote.ShadowDecoration.Parent = this.txtNote;
             this.txtNote.Size = new System.Drawing.Size(366, 36);
             this.txtNote.TabIndex = 58;
+            this.txtNote.Validating += new System.ComponentModel.CancelEventHandler(this.txtNote_Validating);
             // 
             // label8
             // 
@@ -140,6 +137,7 @@
             this.txtIngredientAmount.ShadowDecoration.Parent = this.txtIngredientAmount;
             this.txtIngredientAmount.Size = new System.Drawing.Size(366, 36);
             this.txtIngredientAmount.TabIndex = 55;
+            this.txtIngredientAmount.Validating += new System.ComponentModel.CancelEventHandler(this.txtIngredientAmount_Validating);
             // 
             // txtIngredient
             // 
@@ -214,6 +212,7 @@
             this.txtTitle.ShadowDecoration.Parent = this.txtTitle;
             this.txtTitle.Size = new System.Drawing.Size(449, 36);
             this.txtTitle.TabIndex = 41;
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
             // label4
             // 
@@ -265,6 +264,7 @@
             this.txtDescription.ShadowDecoration.Parent = this.txtDescription;
             this.txtDescription.Size = new System.Drawing.Size(366, 107);
             this.txtDescription.TabIndex = 45;
+            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // label1
             // 
@@ -435,17 +435,6 @@
             this.btnAddStep.Text = "Add";
             this.btnAddStep.Click += new System.EventHandler(this.btnAddStep_Click);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(87, 461);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 21);
-            this.label9.TabIndex = 82;
-            this.label9.Text = "Step image";
-            // 
             // txtStepDescription
             // 
             this.txtStepDescription.Animated = true;
@@ -463,7 +452,7 @@
             this.txtStepDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStepDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepDescription.HoverState.Parent = this.txtStepDescription;
-            this.txtStepDescription.Location = new System.Drawing.Point(194, 332);
+            this.txtStepDescription.Location = new System.Drawing.Point(194, 383);
             this.txtStepDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtStepDescription.MaxLength = 500;
             this.txtStepDescription.Multiline = true;
@@ -472,44 +461,16 @@
             this.txtStepDescription.PlaceholderText = "";
             this.txtStepDescription.SelectedText = "";
             this.txtStepDescription.ShadowDecoration.Parent = this.txtStepDescription;
-            this.txtStepDescription.Size = new System.Drawing.Size(449, 97);
+            this.txtStepDescription.Size = new System.Drawing.Size(449, 99);
             this.txtStepDescription.TabIndex = 81;
-            // 
-            // txtStepImage
-            // 
-            this.txtStepImage.AllowDrop = true;
-            this.txtStepImage.Animated = true;
-            this.txtStepImage.BackColor = System.Drawing.Color.CadetBlue;
-            this.txtStepImage.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtStepImage.DefaultText = "";
-            this.txtStepImage.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtStepImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtStepImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStepImage.DisabledState.Parent = this.txtStepImage;
-            this.txtStepImage.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStepImage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.txtStepImage.FocusedState.Parent = this.txtStepImage;
-            this.txtStepImage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStepImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.txtStepImage.HoverState.Parent = this.txtStepImage;
-            this.txtStepImage.Location = new System.Drawing.Point(194, 461);
-            this.txtStepImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtStepImage.MaxLength = 500;
-            this.txtStepImage.Name = "txtStepImage";
-            this.txtStepImage.PasswordChar = '\0';
-            this.txtStepImage.PlaceholderText = "";
-            this.txtStepImage.ReadOnly = true;
-            this.txtStepImage.SelectedText = "";
-            this.txtStepImage.ShadowDecoration.Parent = this.txtStepImage;
-            this.txtStepImage.Size = new System.Drawing.Size(449, 36);
-            this.txtStepImage.TabIndex = 80;
+            this.txtStepDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtStepDescription_Validating);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(87, 332);
+            this.label7.Location = new System.Drawing.Point(87, 383);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 21);
             this.label7.TabIndex = 79;
@@ -519,7 +480,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label10.Location = new System.Drawing.Point(348, 240);
+            this.label10.Location = new System.Drawing.Point(349, 253);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(115, 30);
             this.label10.TabIndex = 88;
@@ -548,7 +509,6 @@
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.label10);
             this.guna2Panel1.Controls.Add(this.btnSubmit);
-            this.guna2Panel1.Controls.Add(this.btnStepImage);
             this.guna2Panel1.Controls.Add(this.txtImage);
             this.guna2Panel1.Controls.Add(this.btnDeleteStep);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -557,11 +517,9 @@
             this.guna2Panel1.Controls.Add(this.btnAddStep);
             this.guna2Panel1.Controls.Add(this.txtDescription);
             this.guna2Panel1.Controls.Add(this.label5);
-            this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.txtStepDescription);
             this.guna2Panel1.Controls.Add(this.txtTitle);
-            this.guna2Panel1.Controls.Add(this.txtStepImage);
             this.guna2Panel1.Controls.Add(this.label6);
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Controls.Add(this.txtIngredient);
@@ -583,7 +541,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(87, 274);
+            this.label12.Location = new System.Drawing.Point(87, 317);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 21);
             this.label12.TabIndex = 94;
@@ -606,7 +564,7 @@
             this.txtStepOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStepOrder.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtStepOrder.HoverState.Parent = this.txtStepOrder;
-            this.txtStepOrder.Location = new System.Drawing.Point(194, 274);
+            this.txtStepOrder.Location = new System.Drawing.Point(194, 317);
             this.txtStepOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtStepOrder.MaxLength = 500;
             this.txtStepOrder.Name = "txtStepOrder";
@@ -642,23 +600,6 @@
             this.dgvStepDetail.Size = new System.Drawing.Size(552, 189);
             this.dgvStepDetail.TabIndex = 91;
             // 
-            // btnStepImage
-            // 
-            this.btnStepImage.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnStepImage.CheckedState.Parent = this.btnStepImage;
-            this.btnStepImage.HoverState.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnStepImage.HoverState.Parent = this.btnStepImage;
-            this.btnStepImage.Image = global::FoodIt.Properties.Resources.folder;
-            this.btnStepImage.ImageRotate = 0F;
-            this.btnStepImage.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnStepImage.Location = new System.Drawing.Point(659, 461);
-            this.btnStepImage.Name = "btnStepImage";
-            this.btnStepImage.PressedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnStepImage.PressedState.Parent = this.btnStepImage;
-            this.btnStepImage.Size = new System.Drawing.Size(28, 32);
-            this.btnStepImage.TabIndex = 87;
-            this.btnStepImage.Click += new System.EventHandler(this.btnStepImage_Click);
-            // 
             // btnRecipeImage
             // 
             this.btnRecipeImage.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -675,13 +616,6 @@
             this.btnRecipeImage.Size = new System.Drawing.Size(28, 32);
             this.btnRecipeImage.TabIndex = 49;
             this.btnRecipeImage.Click += new System.EventHandler(this.btnRecipeImage_Click);
-            // 
-            // stepFileDlg
-            // 
-            this.stepFileDlg.FileName = "openFileDialog1";
-            this.stepFileDlg.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
-            this.stepFileDlg.ShowHelp = true;
-            this.stepFileDlg.FileOk += new System.ComponentModel.CancelEventHandler(this.stepFileDlg_FileOk);
             // 
             // AddRecipePanel
             // 
@@ -725,17 +659,13 @@
         private Guna.UI2.WinForms.Guna2Button btnUpdateIngre;
         private Guna.UI2.WinForms.Guna2Button btnAddIngre;
         private System.Windows.Forms.Label label10;
-        private Guna.UI2.WinForms.Guna2ImageButton btnStepImage;
         private Guna.UI2.WinForms.Guna2Button btnDeleteStep;
         private Guna.UI2.WinForms.Guna2Button btnUpdateStep;
         private Guna.UI2.WinForms.Guna2Button btnAddStep;
-        private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txtStepDescription;
-        private Guna.UI2.WinForms.Guna2TextBox txtStepImage;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.OpenFileDialog stepFileDlg;
         private System.Windows.Forms.DataGridView dgvStepDetail;
         private System.Windows.Forms.DataGridView dgvIngredientDetail;
         private System.Windows.Forms.BindingSource bsStep;

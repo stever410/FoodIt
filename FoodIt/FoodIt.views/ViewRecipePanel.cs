@@ -32,12 +32,13 @@ namespace FoodIt.views
             this.imgRecipe.ImageLocation = path;
 
             // get all ingredients and render on view
-            IngredientDAO dao = new IngredientDAO();
-            this.recipe.Ingredients = dao.GetAllIngredientsByRecipe(recipe);
+            IngredientDAO ingredientDAO = new IngredientDAO();
+            this.recipe.Ingredients = ingredientDAO.GetAllIngredientsByRecipe(recipe);
             lblDetails.Text = "<h3>Ingredients</h3>" + RenderIngredients();
 
             // get all steps and render on view
-            this.recipe.RecipeSteps = RecipeStepDAO.GetRecipeStepsByRecipe(recipe);
+            RecipeStepDAO recipeStepDAO = new RecipeStepDAO();
+            this.recipe.RecipeSteps = recipeStepDAO.GetRecipeStepsByRecipe(recipe);
             lblDetails.Text += "<h3>Steps</h3><div style='width: 780px;'>" + RenderSteps() + "</div>";
 
             // add update button

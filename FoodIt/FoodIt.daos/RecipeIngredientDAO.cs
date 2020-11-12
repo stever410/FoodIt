@@ -11,9 +11,9 @@ namespace FoodIt.daos
 {
     public class RecipeIngredientDAO
     {
-        private static SqlConnection cnn;
-        private static SqlCommand cmd;
-        private static SqlDataReader reader;
+        private SqlConnection cnn;
+        private SqlCommand cmd;
+        private SqlDataReader reader;
 
         public bool AddRecipeIngredients(int recipeID, List<RecipeIngredient> recipeIngredients)
         {
@@ -27,7 +27,7 @@ namespace FoodIt.daos
                     using (cmd = new SqlCommand(sql, cnn))
                     {
                         cmd.Transaction = transaction;
-                        
+
                         foreach (RecipeIngredient recipeIngredient in recipeIngredients)
                         {
                             cmd.Parameters.Clear();

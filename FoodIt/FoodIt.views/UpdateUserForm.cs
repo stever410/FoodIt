@@ -20,6 +20,14 @@ namespace FoodIt.views
             this.user = user;
             this.mainForm = mainForm;
         }
+        private bool CheckLength(string text, int max)
+        {
+            if (text.Length > max)
+            {
+                return false;
+            }
+            return true;
+        }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
@@ -55,6 +63,11 @@ namespace FoodIt.views
             if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
                 errProvider.SetError(txtUsername, "Username must not blank!");
+                if (!CheckLength(txtUsername.Text, 100))
+                {
+                    errProvider.SetError(txtUsername, "Username max length is 100");
+                    e.Cancel = true;
+                }
                 e.Cancel = true;
             }
             else
@@ -69,7 +82,12 @@ namespace FoodIt.views
             if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 errProvider.SetError(txtPassword, "Password must not blank!");
-                e.Cancel = true;
+                if (!CheckLength(txtPassword.Text, 100))
+                {
+                    errProvider.SetError(txtPassword, "Password max length is 100");
+                    e.Cancel = true;
+                }
+                    e.Cancel = true;
             }
             else
             {
