@@ -46,62 +46,83 @@ namespace FoodIt.views
             }
             return true;
         }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+
             string title = txtTitle.Text;
             string image = txtImage.Text;
             string description = txtDescription.Text;
             //validate
-            if (recipeIngredients.Count == 0 || recipeSteps.Count == 0)
+            if (string.IsNullOrWhiteSpace(title))
             {
-                MessageBox.Show("Please add at least 1 ingredient and 1 step.");
+                MessageBox.Show("Maybe you forgot the name (title) of the recipe :v");
+            }
+            else if(!CheckLength(txtTitle.Text, 100))
+            {
+                MessageBox.Show("Title max length is 100!");
+            }
+            else if (string.IsNullOrWhiteSpace(image))
+            {
+                MessageBox.Show("Recipe with image will be more attractive :v");
+            }
+            else if (string.IsNullOrWhiteSpace(description))
+            {
+                MessageBox.Show("Maybe you forgot describe something about your recipe :v");
             }
             else
             {
-                // data send to db here
-                Recipe recipe = new Recipe(user.Email, title, description, Recipe.DEFAULT_STATUS, DateTime.Now, image);
 
-                RecipeDAO recipeDAO = new RecipeDAO();
-                RecipeStepDAO recipeStepDAO = new RecipeStepDAO();
-                RecipeIngredientDAO recipeIngredientDAO = new RecipeIngredientDAO();
-
-                int recipeID = recipeDAO.AddRecipe(recipe);
-                recipeDAO.UpdateImagePath(recipeID, image);
-
-                recipeStepDAO.AddRecipeSteps(recipeID, recipeSteps);
-                recipeIngredientDAO.AddRecipeIngredients(recipeID, recipeIngredients);
-
-                //save image
-                String path = projectDirectory + @"\resources\img\" + recipeID;
-                if (Directory.Exists(path) == false) //create folder with name is recipeID if it is not exist
+                if (recipeIngredients.Count == 0 || recipeSteps.Count == 0)
                 {
-                    Directory.CreateDirectory(path);
+                    MessageBox.Show("Please add at least 1 ingredient and 1 step.");
                 }
-                try
+                else
                 {
-                    foreach (string imageName in imagePaths.Keys)
+                    // data send to db here
+                    Recipe recipe = new Recipe(user.Email, title, description, Recipe.DEFAULT_STATUS, DateTime.Now, image);
+
+                    RecipeDAO recipeDAO = new RecipeDAO();
+                    RecipeStepDAO recipeStepDAO = new RecipeStepDAO();
+                    RecipeIngredientDAO recipeIngredientDAO = new RecipeIngredientDAO();
+
+                    int recipeID = recipeDAO.AddRecipe(recipe);
+                    recipeDAO.UpdateImagePath(recipeID, image);
+
+                    recipeStepDAO.AddRecipeSteps(recipeID, recipeSteps);
+                    recipeIngredientDAO.AddRecipeIngredients(recipeID, recipeIngredients);
+
+                    //save image
+                    String path = projectDirectory + @"\resources\img\" + recipeID;
+                    if (Directory.Exists(path) == false) //create folder with name is recipeID if it is not exist
                     {
-                        // if step image is null then let it be
-                        if (string.IsNullOrWhiteSpace(imagePaths[imageName]))
-                        {
-                            continue;
-                        }
-
-                        string filename = Path.GetFileName(imagePaths[imageName]);
-                        string destFile = Path.Combine(path, filename);
-                        File.Copy(imagePaths[imageName], destFile, true);
+                        Directory.CreateDirectory(path);
                     }
-                }
-                catch (Exception exp)
-                {
-                    MessageBox.Show("Unable to save file " + exp.Message);
-                }
-                MessageBox.Show("Add new recipe successful!");
+                    try
+                    {
+                        foreach (string imageName in imagePaths.Keys)
+                        {
+                            // if step image is null then let it be
+                            if (string.IsNullOrWhiteSpace(imagePaths[imageName]))
+                            {
+                                continue;
+                            }
 
-                //redirect to viewpanel
-                RedirectViewPanel();
+                            string filename = Path.GetFileName(imagePaths[imageName]);
+                            string destFile = Path.Combine(path, filename);
+                            File.Copy(imagePaths[imageName], destFile, true);
+                        }
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show("Unable to save file " + exp.Message);
+                    }
+                    MessageBox.Show("Add new recipe successful!");
+
+                    //redirect to viewpanel
+                    RedirectViewPanel();
+                }
             }
+
         }
 
         private void RedirectViewPanel()
@@ -224,7 +245,6 @@ namespace FoodIt.views
             }
             txtIngredient.AutoCompleteCustomSource = collection;
         }
-
         private void btnRecipeImage_Click(object sender, EventArgs e)
         {
             recipeFileDlg.ShowDialog();
@@ -265,9 +285,18 @@ namespace FoodIt.views
                 {
                     errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
+                else if(!CheckLength(amount, 50)){
+                    errProvider.SetError(txtIngredientAmount, "Amount max length is 50.");
+                }
+                else if(!CheckLength(note, 500))
+                {
+                    errProvider.SetError(txtNote, "");
+                    errProvider.SetError(txtNote, "Note max length is 50.");
+                }
                 else
                 {
                     errProvider.SetError(txtIngredientAmount, "");
+                    errProvider.SetError(txtNote, "");
                     RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
                     if (recipeIngredients.Contains(ingredient))
                     {
@@ -300,8 +329,19 @@ namespace FoodIt.views
                 {
                     errProvider.SetError(txtIngredientAmount, "Amount must not be blank.");
                 }
+                else if (!CheckLength(amount, 50))
+                {
+                    errProvider.SetError(txtIngredientAmount, "Amount max length is 50.");
+                }
+                else if (!CheckLength(note, 500))
+                {
+                    errProvider.SetError(txtIngredientAmount, "");
+                    errProvider.SetError(txtNote, "Note max length is 50.");
+                }
                 else
                 {
+                    errProvider.SetError(txtIngredientAmount, "");
+                    errProvider.SetError(txtNote, "");
                     RecipeIngredient ingredient = new RecipeIngredient(id, amount, note);
                     for (int i = 0; i < recipeIngredients.Count; i++)
                     {
@@ -320,7 +360,6 @@ namespace FoodIt.views
                 MessageBox.Show("Invalid ingredient");
             }
         }
-
         private void btnDeleteIngre_Click(object sender, EventArgs e)
         {
             IngredientDAO dao = new IngredientDAO();
@@ -343,91 +382,6 @@ namespace FoodIt.views
             else
             {
                 MessageBox.Show("Invalid ingredient");
-            }
-        }
-
-        private void txtTitle_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtTitle.Text))
-            {
-                errProvider.SetError(txtTitle, "Title must not blank!");
-                if (!CheckLength(txtTitle.Text, 100))
-                {
-                    errProvider.SetError(txtTitle, "Title max length is 100");
-                    e.Cancel = true;
-                }
-                e.Cancel = true;
-            }
-            else
-            {
-                errProvider.SetError(txtTitle, "");
-                e.Cancel = false;
-            }
-        }
-
-        private void txtIngredientAmount_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtIngredientAmount.Text))
-            {
-                errProvider.SetError(txtIngredientAmount, "Amount must not blank!");
-                if (!CheckLength(txtIngredientAmount.Text, 50))
-                {
-                    errProvider.SetError(txtIngredientAmount, "Amount max length is 50");
-                    e.Cancel = true;
-                }
-                e.Cancel = true;
-            }
-            else
-            {
-                errProvider.SetError(txtIngredientAmount, "");
-                e.Cancel = false;
-            }
-        }
-
-        private void txtNote_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtNote.Text))
-            {
-                errProvider.SetError(txtNote, "Note must not blank!");
-                if (!CheckLength(txtNote.Text, 500))
-                {
-                    errProvider.SetError(txtNote, "Note max length is 500");
-                    e.Cancel = true;
-                }
-                e.Cancel = true;
-            }
-            else
-            {
-                errProvider.SetError(txtNote, "");
-                e.Cancel = false;
-            }
-        }
-
-        private void txtDescription_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtDescription.Text))
-            {
-                errProvider.SetError(txtDescription, "Description must not blank!");
-                e.Cancel = true;
-            }
-            else
-            {
-                errProvider.SetError(txtDescription, "");
-                e.Cancel = false;
-            }
-        }
-
-        private void txtStepDescription_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtStepDescription.Text))
-            {
-                errProvider.SetError(txtStepDescription, "Step Description must not blank!");
-                e.Cancel = true;
-            }
-            else
-            {
-                errProvider.SetError(txtStepDescription, "");
-                e.Cancel = false;
             }
         }
 

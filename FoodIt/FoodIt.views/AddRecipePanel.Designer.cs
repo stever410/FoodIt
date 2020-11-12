@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRecipePanel));
             this.txtNote = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -91,7 +92,6 @@
             this.txtNote.ShadowDecoration.Parent = this.txtNote;
             this.txtNote.Size = new System.Drawing.Size(366, 36);
             this.txtNote.TabIndex = 58;
-            this.txtNote.Validating += new System.ComponentModel.CancelEventHandler(this.txtNote_Validating);
             // 
             // label8
             // 
@@ -107,6 +107,7 @@
             // errProvider
             // 
             this.errProvider.ContainerControl = this;
+            this.errProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errProvider.Icon")));
             // 
             // recipeFileDlg
             // 
@@ -137,7 +138,6 @@
             this.txtIngredientAmount.ShadowDecoration.Parent = this.txtIngredientAmount;
             this.txtIngredientAmount.Size = new System.Drawing.Size(366, 36);
             this.txtIngredientAmount.TabIndex = 55;
-            this.txtIngredientAmount.Validating += new System.ComponentModel.CancelEventHandler(this.txtIngredientAmount_Validating);
             // 
             // txtIngredient
             // 
@@ -212,7 +212,6 @@
             this.txtTitle.ShadowDecoration.Parent = this.txtTitle;
             this.txtTitle.Size = new System.Drawing.Size(449, 36);
             this.txtTitle.TabIndex = 41;
-            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
             // label4
             // 
@@ -264,7 +263,6 @@
             this.txtDescription.ShadowDecoration.Parent = this.txtDescription;
             this.txtDescription.Size = new System.Drawing.Size(366, 107);
             this.txtDescription.TabIndex = 45;
-            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // label1
             // 
@@ -463,7 +461,6 @@
             this.txtStepDescription.ShadowDecoration.Parent = this.txtStepDescription;
             this.txtStepDescription.Size = new System.Drawing.Size(449, 99);
             this.txtStepDescription.TabIndex = 81;
-            this.txtStepDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtStepDescription_Validating);
             // 
             // label7
             // 

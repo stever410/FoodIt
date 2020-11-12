@@ -85,6 +85,7 @@
             this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtNote.HoverState.Parent = this.txtNote;
             this.txtNote.Location = new System.Drawing.Point(937, 446);
+            this.txtNote.MaxLength = 500;
             this.txtNote.Name = "txtNote";
             this.txtNote.PasswordChar = '\0';
             this.txtNote.PlaceholderText = "";
@@ -132,6 +133,7 @@
             this.txtIngredientAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.txtIngredientAmount.HoverState.Parent = this.txtIngredientAmount;
             this.txtIngredientAmount.Location = new System.Drawing.Point(937, 383);
+            this.txtIngredientAmount.MaxLength = 50;
             this.txtIngredientAmount.Name = "txtIngredientAmount";
             this.txtIngredientAmount.PasswordChar = '\0';
             this.txtIngredientAmount.PlaceholderText = "";
@@ -257,7 +259,7 @@
             this.txtDescription.HoverState.Parent = this.txtDescription;
             this.txtDescription.Location = new System.Drawing.Point(937, 107);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDescription.MaxLength = 500;
+            this.txtDescription.MaxLength = 2000;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.PasswordChar = '\0';
@@ -473,7 +475,7 @@
             this.txtStepDescription.HoverState.Parent = this.txtStepDescription;
             this.txtStepDescription.Location = new System.Drawing.Point(194, 385);
             this.txtStepDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtStepDescription.MaxLength = 500;
+            this.txtStepDescription.MaxLength = 2000;
             this.txtStepDescription.Multiline = true;
             this.txtStepDescription.Name = "txtStepDescription";
             this.txtStepDescription.PasswordChar = '\0';
