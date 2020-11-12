@@ -111,7 +111,7 @@
             // recipeFileDlg
             // 
             this.recipeFileDlg.FileName = "openFileDialog1";
-            this.recipeFileDlg.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
+            this.recipeFileDlg.Filter = "Image Files (*.jpg;*.jpeg;*.png;)|*.jpg;*.jpeg;*.png";
             this.recipeFileDlg.ShowHelp = true;
             this.recipeFileDlg.FileOk += new System.ComponentModel.CancelEventHandler(this.recipeFileDlg_FileOk);
             // 

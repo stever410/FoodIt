@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateRecipePanel));
             this.txtNote = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -107,11 +108,12 @@
             // errProvider
             // 
             this.errProvider.ContainerControl = this;
+            this.errProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errProvider.Icon")));
             // 
             // recipeFileDlg
             // 
             this.recipeFileDlg.FileName = "openFileDialog1";
-            this.recipeFileDlg.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
+            this.recipeFileDlg.Filter = "Image Files (*.jpg;*.jpeg;*.png;)|*.jpg;*.jpeg;*.png";
             this.recipeFileDlg.ShowHelp = true;
             this.recipeFileDlg.FileOk += new System.ComponentModel.CancelEventHandler(this.recipeFileDlg_FileOk);
             // 

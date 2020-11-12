@@ -137,7 +137,9 @@ namespace FoodIt.views
             for (int i = 0; i < recipeSteps.Count; i++)
             {
                 DataRow dr = dtStep.NewRow();
-                dr["StepOrder"] = recipeSteps[i].Id;
+                // set step order to back to 1
+                recipeSteps[i].Id = i + 1;
+                dr["StepOrder"] = i + 1;
                 dr["Description"] = recipeSteps[i].Description;
                 dtStep.Rows.Add(dr);
             }
@@ -147,7 +149,7 @@ namespace FoodIt.views
             txtStepDescription.DataBindings.Add("Text", dtStep, "Description");
             dgvStepDetail.DataSource = dtStep;
         }
-        private void updateStepOrder()
+        private void UpdateStepOrder()
         {
             for (int i = 0; i < recipeSteps.Count; i++)
             {
@@ -213,16 +215,16 @@ namespace FoodIt.views
             // NOTE: Don't pass this id attribute to db
             int id = int.Parse(txtStepOrder.Text);
             string description = txtStepDescription.Text;
-            RecipeStep updatedStep = new RecipeStep(id, description);
+            RecipeStep deletedStep = new RecipeStep(id, description);
             for (int i = 0; i < recipeSteps.Count; i++)
             {
-                if (recipeSteps[i].Equals(updatedStep))
+                if (recipeSteps[i].Equals(deletedStep))
                 {
                     recipeSteps.RemoveAt(i);
                     break;
                 }
             }
-            updateStepOrder();
+            UpdateStepOrder();
             LoadAllSteps();
         }
         #endregion

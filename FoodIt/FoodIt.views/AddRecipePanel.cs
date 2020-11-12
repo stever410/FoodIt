@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using FoodIt.dtos;
 using FoodIt.daos;
+using Guna.UI2.WinForms;
 
 namespace FoodIt.views
 {
@@ -97,24 +98,19 @@ namespace FoodIt.views
                     MessageBox.Show("Unable to save file " + exp.Message);
                 }
                 MessageBox.Show("Add new recipe successful!");
-                ClearAll();
+
+                //redirect to viewpanel
+                RedirectViewPanel();
             }
         }
 
-        private void ClearAll()
+        private void RedirectViewPanel()
         {
-            txtIngredientAmount.Clear();
-            txtIngredient.Clear();
-            txtNote.Clear();
-            txtImage.Clear();
-            txtDescription.Clear();
-            txtTitle.Clear();
-            txtStepOrder.Clear();
-            txtStepDescription.Clear();
-            recipeIngredients.Clear();
-            recipeSteps.Clear();
-            LoadAllSteps();
-            LoadAllIngredients();
+            Guna2Panel mainPnl = this.Parent as Guna2Panel;
+            mainPnl.Controls.Clear();
+            FoodGridPanel foodGridPanel = new FoodGridPanel(mainPnl);
+            foodGridPanel.User = this.user;
+            mainPnl.Controls.Add(foodGridPanel);
         }
 
         #region StepDetail

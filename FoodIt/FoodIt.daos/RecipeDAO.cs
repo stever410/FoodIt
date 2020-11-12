@@ -160,7 +160,7 @@ namespace FoodIt.daos
         {
             try
             {
-                string sql = "Insert Recipe output INSERTED.recipe_id values(@email, @title, @description, @status, @date, @image, @category)";
+                string sql = "Insert Recipe output INSERTED.recipe_id values(@email, @title, @description, @status, @date, @image)";
                 using (conn = MyConnection.GetMyConnection())
                 {
                     conn.Open();
@@ -172,7 +172,6 @@ namespace FoodIt.daos
                         cmd.Parameters.AddWithValue("@status", recipe.Status);
                         cmd.Parameters.AddWithValue("@date", recipe.Date);
                         cmd.Parameters.AddWithValue("@image", recipe.Image);
-                        cmd.Parameters.AddWithValue("@category", "");
                         //return cmd.ExecuteNonQuery() > 0;
                         return (int)cmd.ExecuteScalar();
                     }
