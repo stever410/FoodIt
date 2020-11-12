@@ -93,7 +93,6 @@
             this.txtNote.ShadowDecoration.Parent = this.txtNote;
             this.txtNote.Size = new System.Drawing.Size(366, 36);
             this.txtNote.TabIndex = 58;
-            this.txtNote.Validating += new System.ComponentModel.CancelEventHandler(this.txtNote_Validating);
             // 
             // label8
             // 
@@ -141,7 +140,6 @@
             this.txtIngredientAmount.ShadowDecoration.Parent = this.txtIngredientAmount;
             this.txtIngredientAmount.Size = new System.Drawing.Size(366, 36);
             this.txtIngredientAmount.TabIndex = 55;
-            this.txtIngredientAmount.Validating += new System.ComponentModel.CancelEventHandler(this.txtIngredientAmount_Validating);
             // 
             // txtIngredient
             // 
@@ -216,7 +214,6 @@
             this.txtTitle.ShadowDecoration.Parent = this.txtTitle;
             this.txtTitle.Size = new System.Drawing.Size(449, 36);
             this.txtTitle.TabIndex = 41;
-            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
             // label4
             // 
@@ -268,7 +265,6 @@
             this.txtDescription.ShadowDecoration.Parent = this.txtDescription;
             this.txtDescription.Size = new System.Drawing.Size(366, 107);
             this.txtDescription.TabIndex = 45;
-            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // btnRecipeImage
             // 
@@ -484,7 +480,6 @@
             this.txtStepDescription.ShadowDecoration.Parent = this.txtStepDescription;
             this.txtStepDescription.Size = new System.Drawing.Size(449, 97);
             this.txtStepDescription.TabIndex = 81;
-            this.txtStepDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtStepDescription_Validating);
             // 
             // label7
             // 
